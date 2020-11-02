@@ -18,6 +18,7 @@ typedef struct corPadrao{
 
 }CorPadraoStruct;
 
+//Separar
 CorPadrao criaCorPadrao(char* quadraSw, char* quadraCfill, char* quadraCstrk, char* hidranteSw, char* hidranteCfill, char* hidranteCstrk, char* radioBaseSw, char* radioBaseCfill, char* radioBaseCstrk, char* semaforoSw, char* semaforoCfill, char* semaforoCstrk, char* circuloSw, char* retanguloSw){
     CorPadraoStruct* cor = (CorPadraoStruct*) malloc(sizeof(CorPadraoStruct));
     strcpy(cor->quadraSw, quadraSw);

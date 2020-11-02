@@ -9,7 +9,13 @@
 #include "doublyLinkedList.h"
 
 //Custem Headers Formas
-//Incluir formas
+//T1_ED
+#include "circulo.h"
+#include "retangulo.h"
+#include "texto.h"
+#include "linha.h"
+//T2_ED
+
 
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
@@ -20,7 +26,7 @@ typedef struct nx{
     int nh;
     int ns;
     int nr;
-}Nx;
+}NxStruct;
 
 
 void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
@@ -32,7 +38,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     printf("Arquivo GEO aberto com sucesso!");
 
     //Numeros maximos de Elementos em cada lista;
-     Nx dft;
+     NxStruct dft;
      dft.i = 1000;
      dft.nq = 1000;
      dft.nh = 1000;
@@ -40,7 +46,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
      dft.nr = 1000;
 
     //Quantidade atual de Elementos em cada lista
-     Nx atual;
+     NxStruct atual;
      atual.i = 0;
      atual.nq = 0;
      atual.nh = 0;
@@ -53,6 +59,10 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     float r, x, y, w, h, d;
     char* txt = NULL;
 
+    //Variáveis auxiliares para formas
+    Circulo auxCirc = NULL;
+    Retangulo auxRet = NULL;
+    Texto auxTex = NULL;
 
     while(1){
         fscanf(fileGeo, "%s", comando);
@@ -70,14 +80,37 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
         //Comando: c
         else if(strcmp(comando, "c") == 0){
             fscanf(fileGeo, "%d %f %f %f %s %s", &id, &r, &x, &y, cb, cp);
+            auxCirc = criaCirculo(id, x, y, r, cb, cp);
+            insert(listas[CIRCULO], auxCirc);
         }
         //Comando: r
         else if(strcmp(comando, "r") == 0){
             fscanf(fileGeo, "%d %f %f %f %f %s %s", &id, &w, &h, &x, &y, cb, cp);
+            auxRet = criaRetangulo(id, 0, x, y, w, h, cb, cp);
+            insert(listas[RETANGULO], auxRet);
         }
         //Comando: t
         else if(strcmp(comando, "t") == 0){
             fscanf(fileGeo, "%d %f %f %s %s", &id, &x, &y, cb, cp);
+            
+            // a juia é uma egirl que toma banho e muito linda\n
+            buffer = getc(fileGeo);
+            while(!feof(fileGeo) && buffer != '\n'){
+                buffer = getc(fileGeo);
+                bufferSize++;
+            }
+            bufferSize++;
+            fseek(fileGeo, -bufferSize, SEEK_CUR);
+            buffer = getc(fileGeo);
+            txt = (char*) malloc(sizeof(char) * (bufferSize + 1));
+            if(txt == NULL){
+                exit(1);
+            }
+            fscanf(fileGeo, "%[^\n]s", txt);
+            auxTex = criaTexto(id, bufferSize, x, y, txt, cb, cp);
+            insert(listas[TEXTO], auxTex);
+            bufferSize = 0;
+            free(txt);
         }
         //T2_ED
         //Comando: q

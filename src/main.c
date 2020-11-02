@@ -27,6 +27,10 @@ int main(int argc, char* argv[]){
     //Variaveis criadas para a localização dos arquivos de entrada e de saída
     //Armazena dirEntrada + arqGeo
     char* dirGeo = NULL;
+    //Armazena o nome do arquivo .geo sem extensão
+    char* nomeArquivoGeo = NULL;
+    //Armazena o path de saida do arquivo .svg + nome do arquivo + extensão
+    char* saidaSvgGeo = NULL;
 
     //Realiza a leitura dos parâmetros
     for(int i = 1; argc > i; i++){     
@@ -50,14 +54,21 @@ int main(int argc, char* argv[]){
 
     //Cria Listas
     DoublyLinkedList listas[8];
-    for(int i = 0; i < 8; i++){
+    for(int i = CIRCULO; i < RADIOBASE; i++){
         listas[i] = create();
     }
 
     //Refatorar trataString para retornar char*
     concatenaCaminhos(dirEntrada, arqGeo, &dirGeo);
     readGeo(listas, dirGeo, cores);
-
     
+    //me retorna por ex. overlaps-01.svg
+    getNomeConcatExtension(arqGeo, ".svg", &nomeArquivoGeo);
+    //me retorna pastaSaida/resultados/overlaps-01.svg
+    concatenaCaminhos(dirSaida, nomeArquivoGeo, &saidaSvgGeo);
+    //Cria o arquivo do SVG e desenha a lista dentro dele
+    desenhaSvgGeo(listas, cores, saidaSvgGeo);
+
+
     return 0;
 }
