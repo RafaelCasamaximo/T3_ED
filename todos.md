@@ -5,3 +5,4 @@ Implementações T1
 -Leitura QRY
 -SVG QRY
 -TXT de Log
+-T2 e T3
