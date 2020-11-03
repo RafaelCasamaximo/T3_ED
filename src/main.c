@@ -73,7 +73,7 @@ int main(int argc, char* argv[]){
 
     //Cria Listas
     DoublyLinkedList listas[8];
-    for(int i = CIRCULO; i < RADIOBASE; i++){
+    for(int i = 0; i < 8; i++){
         listas[i] = create();
     }
 
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]){
     }
 
     //Deleta todas as listas
-    for(int i = CIRCULO; i < RADIOBASE; i++){
+    for(int i = 0; i < 8; i++){
         //Caso a lista seja uma lista de texto, deleta todos os textos alocados
         if(i == TEXTO){
             for(Node aux = getFirst(listas[TEXTO]); aux != NULL; aux = getNext(aux)){

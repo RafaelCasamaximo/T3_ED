@@ -59,7 +59,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     //Variaveis auxiliares
     char comando[3], cp[22], cb[22], cep[20], sw[22], cw[22], rw[22], cfill[22], cstrk[22], buffer;
     int id, bufferSize = 0;
-    float r, x, y, w, h, d;
+    float r, x, y, w, h;
     char* txt = NULL;
 
     //Variáveis auxiliares para formas
@@ -100,7 +100,6 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
         else if(strcmp(comando, "t") == 0){
             fscanf(fileGeo, "%d %f %f %s %s", &id, &x, &y, cb, cp);
             
-            // a juia é uma egirl que toma banho e muito linda\n
             buffer = getc(fileGeo);
             while(!feof(fileGeo) && buffer != '\n'){
                 buffer = getc(fileGeo);
