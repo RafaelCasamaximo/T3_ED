@@ -112,52 +112,52 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             bufferSize = 0;
             free(txt);
         }
-        //T2_ED
-        //Comando: q
-        else if(strcmp(comando, "q") == 0){
-            fscanf(fileGeo, "%s %f %f %f %f", cep, &x, &y, &w, &h);
-        }
-        //Comando: h
-        else if(strcmp(comando, "h") == 0){
-            fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        }
-        //Comando: s
-        else if(strcmp(comando, "s") == 0){
-            fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        }
-        //Comando: rb
-        else if(strcmp(comando, "rb") == 0){
-           fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        }
-        //Comando: cq
-        else if(strcmp(comando, "cq") == 0){
-            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        }   
-        //Comando: ch
-        else if(strcmp(comando, "ch") == 0){
-            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        }
-        //Comando: cr
-        else if(strcmp(comando, "cr") == 0){
-            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        }
-        //Comando: cs
-        else if(strcmp(comando, "cs") == 0){
-            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        }
-        //Comando: sw
-        else if(strcmp(comando, "sw") == 0){
-            fscanf(fileGeo, "%s %s", cw, rw);
-        }
-        //T3_ED
-        //Comando ps
-        else if(strcmp(comando, "ps") == 0){
-            fscanf(fileGeo, "%f %f", &x, &y);
-        }
-        //Comando dd
-        else if(strcmp(comando, "dd") == 0){
-            fscanf(fileGeo, "%f %f %f %f %f", &x, &y, &w, &h, &d);
-        }
+        // //T2_ED
+        // //Comando: q
+        // else if(strcmp(comando, "q") == 0){
+        //     fscanf(fileGeo, "%s %f %f %f %f", cep, &x, &y, &w, &h);
+        // }
+        // //Comando: h
+        // else if(strcmp(comando, "h") == 0){
+        //     fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+        // }
+        // //Comando: s
+        // else if(strcmp(comando, "s") == 0){
+        //     fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+        // }
+        // //Comando: rb
+        // else if(strcmp(comando, "rb") == 0){
+        //    fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+        // }
+        // //Comando: cq
+        // else if(strcmp(comando, "cq") == 0){
+        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+        // }   
+        // //Comando: ch
+        // else if(strcmp(comando, "ch") == 0){
+        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+        // }
+        // //Comando: cr
+        // else if(strcmp(comando, "cr") == 0){
+        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+        // }
+        // //Comando: cs
+        // else if(strcmp(comando, "cs") == 0){
+        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+        // }
+        // //Comando: sw
+        // else if(strcmp(comando, "sw") == 0){
+        //     fscanf(fileGeo, "%s %s", cw, rw);
+        // }
+        // //T3_ED
+        // //Comando ps
+        // else if(strcmp(comando, "ps") == 0){
+        //     fscanf(fileGeo, "%f %f", &x, &y);
+        // }
+        // //Comando dd
+        // else if(strcmp(comando, "dd") == 0){
+        //     fscanf(fileGeo, "%f %f %f %f %f", &x, &y, &w, &h, &d);
+        // }
     }
 
     fclose(fileGeo);

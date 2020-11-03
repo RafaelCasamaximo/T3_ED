@@ -104,3 +104,9 @@ void textoSetCorPreenchimento(Texto texto, char* cp){
 
     strcpy(tex->cp, cp);
 }
+
+void textoDeletaTxt(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    free(tex->txt);
+}

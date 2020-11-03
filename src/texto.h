@@ -24,6 +24,6 @@ void textoSetTexto(Texto texto, char* txt, int size);
 void textoSetCorBorda(Texto texto, char* cb);
 void textoSetCorPreenchimento(Texto texto, char* cp);
 
-
+void textoDeletaTxt(Texto texto);
 
 #endif

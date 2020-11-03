@@ -8,6 +8,9 @@
 #include "trataString.h"
 #include "corPadrao.h"
 #include "leituraGeo.h"
+#include "leituraQry.h"
+#include "svg.h"
+#include "texto.h"
 
 //Custom Headers para estruturas e organização
 #include "doublyLinkedList.h"
@@ -27,10 +30,26 @@ int main(int argc, char* argv[]){
     //Variaveis criadas para a localização dos arquivos de entrada e de saída
     //Armazena dirEntrada + arqGeo
     char* dirGeo = NULL;
-    //Armazena o nome do arquivo .geo sem extensão
+    //Armazena o nome do arquivo .geo
     char* nomeArquivoGeo = NULL;
     //Armazena o path de saida do arquivo .svg + nome do arquivo + extensão
     char* saidaSvgGeo = NULL;
+    //Armazena o path de entrada do arquivo qry
+    char* dirQry = NULL;
+    //Armazena o nome do arquivo .geo sem extensão
+    char* nomeGeoSemExtensao = NULL;
+    //Armazena o nome do arquivo .qry sem extensão
+    char* nomeQrySemExtensao = NULL;
+    //Armazena o nome do arquivo geo com o arquivo qry
+    char* nomeGeoQry = NULL;
+    //Armazena o caminho de saida do SVG do geo+qry
+    char* dirSaidaGeoQry = NULL;
+    //Armazena o nome do arquivo de Log (TXT)
+    char* nomeArquivoLogTxt = NULL;
+    //Armazena o path de saida do arquivo de Log
+    char* dirTxt = NULL;
+
+
 
     //Realiza a leitura dos parâmetros
     for(int i = 1; argc > i; i++){     
@@ -69,6 +88,63 @@ int main(int argc, char* argv[]){
     //Cria o arquivo do SVG e desenha a lista dentro dele
     desenhaSvgGeo(listas, cores, saidaSvgGeo);
 
+
+    if(arqQry != NULL){
+        //Comando para criar o caminho que será utilizado para abrir o .qry
+        concatenaCaminhos(dirEntrada, arqQry, &dirQry);
+
+        //Me retorna o nome do arquivo geo sem extensão (utilizado mais tarde no nome do svg)
+        extraiNome(arqGeo, &nomeGeoSemExtensao);
+
+        //Me retorna o nome do arquivo qry sem extensão (utilizado mais tarde no nome do svg)
+        extraiNome(arqQry, &nomeQrySemExtensao);
+        
+        //Me retorna nomeDoArquivoGeo-NomeDoArquivoQry.Extensão (nomeDoArquivoGeo-NomeDoArquivoQry.svg)
+        concatenaNomeGeoQry(nomeGeoSemExtensao, nomeQrySemExtensao, ".svg", &nomeGeoQry);
+        
+        //Concatena o caminho de saida com o nome gerado no comando acima (saida do SVG)
+        concatenaCaminhos(dirSaida, nomeGeoQry, &dirSaidaGeoQry);
+        
+        //Me retorna nomeDoArquivoGeo-NomeDoArquivoQry.Extensão (nomeDoArquivoGeo-NomeDoArquivoQry.txt)
+        concatenaNomeGeoQry(nomeGeoSemExtensao, nomeQrySemExtensao, ".txt", &nomeArquivoLogTxt);
+
+        //Concatena o caminho de saida com o nome gerado no comando acima (saida do TXT)
+        concatenaCaminhos(dirSaida, nomeArquivoLogTxt, &dirTxt);
+
+        //Lê os comandos do QRY
+        readQry(listas, dirQry, dirTxt);
+
+        //Desenha o svg do QRY
+        //desenhaSvgQry(listas, cores, dirSaidaGeoQry);
+    }
+
+    //Deleta todas as listas
+    for(int i = CIRCULO; i < RADIOBASE; i++){
+        //Caso a lista seja uma lista de texto, deleta todos os textos alocados
+        if(i == TEXTO){
+            for(Node aux = getFirst(listas[TEXTO]); aux != NULL; aux = getNext(aux)){
+                textoDeletaTxt(getInfo(aux));
+                printf("%d", TEXTO);
+            }
+        }
+        removeList(listas[i]);
+    }
+
+    free(dirEntrada);
+    free(arqGeo);
+    free(arqQry);
+    free(dirSaida);
+    free(dirGeo);
+    free(nomeArquivoGeo);
+    free(saidaSvgGeo);
+    free(dirQry);
+    free(nomeGeoSemExtensao);
+    free(nomeQrySemExtensao);
+    free(nomeGeoQry);
+    free(dirSaidaGeoQry);
+    free(nomeArquivoLogTxt);
+    free(dirTxt);
+    free(cores);
 
     return 0;
 }

@@ -133,8 +133,14 @@ void removeNode(DoublyLinkedList lista, Node node){
 
 void removeList(DoublyLinkedList lista){
     ListaStruct* list = (ListaStruct*) lista;
-    for(Node aux = getFirst(list); aux != NULL; aux = getFirst(list)){
-        list->primeiro = getNext(aux);
-        removeNode(list, aux);
+    NodeStruct* inicio = list->primeiro;
+
+    NodeStruct* aux = NULL;
+    while(inicio != NULL){
+        aux = inicio;
+        inicio = inicio->prox;
+        free(getInfo(aux));
+        free(aux);
     }
+    free(list);
 }

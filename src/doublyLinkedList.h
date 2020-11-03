@@ -5,6 +5,9 @@ typedef void* DoublyLinkedList;
 typedef void* Info;
 typedef void* Node;
 
+/*
+Instancia uma nova lista (malloc e retorna o void*)
+*/
 DoublyLinkedList create();
 void insert(DoublyLinkedList lista, Info info);
 Info getInfo(Node node);
