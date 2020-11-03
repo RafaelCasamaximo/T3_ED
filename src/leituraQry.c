@@ -74,28 +74,28 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
             fscanf(fileQry, "%d %d", &j, &k);
         }
         
-        //T2_ED
-        //dq
-        if(strcmp(comando, "dq") == 0){
-            //Logica diferente
-        }
-        //del
-        if(strcmp(comando, "del") == 0){
-            fscanf(fileQry, "%s", cep);
-        }
-        //cbq    
-        if(strcmp(comando, "cbq") == 0){
-            fscanf(fileQry, "%f %f %f %s", &x, &y, &r, cb);
-        }   
-        //crd?      
+        // //T2_ED
+        // //dq
+        // if(strcmp(comando, "dq") == 0){
+        //     //Logica diferente
+        // }
+        // //del
+        // if(strcmp(comando, "del") == 0){
+        //     fscanf(fileQry, "%s", cep);
+        // }
+        // //cbq    
+        // if(strcmp(comando, "cbq") == 0){
+        //     fscanf(fileQry, "%f %f %f %s", &x, &y, &r, cb);
+        // }   
+        // //crd?      
         // if(strcmp(comando, "crd?") == 0){
 
         // }
-        //car
-        if(strcmp(comando, "car") == 0){
-            fscanf(fileQry, "%f %f %f %f", &x, &y, &w, &h);
-        }   
-        id--;
+        // //car
+        // if(strcmp(comando, "car") == 0){
+        //     fscanf(fileQry, "%f %f %f %f", &x, &y, &w, &h);
+        // }   
+        // id--;
     }
 
     fclose(fileTxt);

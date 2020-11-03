@@ -15,7 +15,10 @@
 #include "texto.h"
 #include "linha.h"
 //T2_ED
-
+#include "quadra.h"
+#include "hidrante.h"
+#include "semaforo.h"
+#include "radioBase.h"
 
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
@@ -63,6 +66,10 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     Circulo auxCirc = NULL;
     Retangulo auxRet = NULL;
     Texto auxTex = NULL;
+    Quadra quadraAux = NULL;
+    Hidrante hidranteAux = NULL;
+    Semaforo semaforoAux = NULL;
+    RadioBase radiobaseAux = NULL;
 
     while(1){
         fscanf(fileGeo, "%s", comando);
@@ -112,43 +119,86 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             bufferSize = 0;
             free(txt);
         }
-        // //T2_ED
-        // //Comando: q
-        // else if(strcmp(comando, "q") == 0){
-        //     fscanf(fileGeo, "%s %f %f %f %f", cep, &x, &y, &w, &h);
-        // }
-        // //Comando: h
-        // else if(strcmp(comando, "h") == 0){
-        //     fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        // }
-        // //Comando: s
-        // else if(strcmp(comando, "s") == 0){
-        //     fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        // }
+        //T2_ED
+        //Comando: q
+        else if(strcmp(comando, "q") == 0){
+            fscanf(fileGeo, "%s %f %f %f %f", cep, &x, &y, &w, &h);
+
+            if(atual.nq < dft.nq){
+                atual.nq += 1;
+                quadraAux = criaQuadra(cep, x, y, w, h, coresPadraoGetBordaQuadras(cores), coresPadraoGetPreenchimentoQuadras(cores), 0);
+                insert(listas[QUADRA], quadraAux);
+            }
+        }
+        //Comando: h
+        else if(strcmp(comando, "h") == 0){
+            fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+
+            if(atual.nh < dft.nh){
+                atual.nh += 1;
+                hidranteAux = criaHidrante(cep, x, y);
+                insert(listas[HIDRANTE], hidranteAux);
+            }
+        }
+        //Comando: s
+        else if(strcmp(comando, "s") == 0){
+            fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+
+            if(atual.ns < dft.ns){
+                atual.ns += 1;
+                semaforoAux = criaSemaforo(cep, x, y);
+                insert(listas[SEMAFORO], semaforoAux);
+            }
+        }
         // //Comando: rb
-        // else if(strcmp(comando, "rb") == 0){
-        //    fscanf(fileGeo, "%s %f %f", cep, &x, &y);
-        // }
+        else if(strcmp(comando, "rb") == 0){
+            fscanf(fileGeo, "%s %f %f", cep, &x, &y);
+
+            if(atual.nr < dft.nr){
+                atual.nr += 1;
+                radiobaseAux = criaRadioBase(cep, x, y);
+                insert(listas[RADIOBASE], radiobaseAux);
+            }   
+        }
         // //Comando: cq
-        // else if(strcmp(comando, "cq") == 0){
-        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        // }   
+        else if(strcmp(comando, "cq") == 0){
+            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+
+            coresPadraoSetPreenchimentoQuadras(cores, cfill);
+            coresPadraoSetBordaQuadras(cores, cstrk);
+            coresPadraoSetEspessuraQuadras(cores, sw);
+        }   
         // //Comando: ch
-        // else if(strcmp(comando, "ch") == 0){
-        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        // }
+        else if(strcmp(comando, "ch") == 0){
+            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+
+            coresPadraoSetPreenchimentoHidrantes(cores, cfill);
+            coresPadraoSetBordaHidrantes(cores, cstrk);
+            coresPadraoSetEspessuraHidrantes(cores, sw);
+        }
         // //Comando: cr
-        // else if(strcmp(comando, "cr") == 0){
-        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        // }
+        else if(strcmp(comando, "cr") == 0){
+            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+
+            coresPadraoSetPreenchimentoRadioBases(cores, cfill);
+            coresPadraoSetBordaRadioBases(cores, cstrk);
+            coresPadraoSetEspessuraRadioBases(cores, sw);
+        }
         // //Comando: cs
-        // else if(strcmp(comando, "cs") == 0){
-        //     fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
-        // }
+        else if(strcmp(comando, "cs") == 0){
+            fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
+
+            coresPadraoSetPreenchimentoSemaforos(cores, cfill);
+            coresPadraoSetBordaSemaforos(cores, cstrk);
+            coresPadraoSetEspessuraSemaforos(cores, sw);
+        }
         // //Comando: sw
-        // else if(strcmp(comando, "sw") == 0){
-        //     fscanf(fileGeo, "%s %s", cw, rw);
-        // }
+        else if(strcmp(comando, "sw") == 0){
+            fscanf(fileGeo, "%s %s", cw, rw);
+
+            coresPadraoSetEspessuraCirculos(cores, cw);
+            coresPadraoSetEspessuraRetangulos(cores, rw);
+        }
         // //T3_ED
         // //Comando ps
         // else if(strcmp(comando, "ps") == 0){
