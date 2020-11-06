@@ -7,8 +7,11 @@
 #include "linha.h"
 #include "retangulo.h"
 #include "corPadrao.h"
+#include "qry.h"
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+
+
 
 void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
 
@@ -59,19 +62,22 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         //pnt
         if(strcmp(comando, "pnt") == 0){
             fscanf(fileQry, "%d %s %s", &j, cb, cp);
-
+            pnt(listas, j, cb, cp, fileTxt);
         }
         //pnt*
         if(strcmp(comando, "pnt*") == 0){
             fscanf(fileQry, "%d %d %s %s", &j, &k, cb, cp);
+            pntAst(listas, j, k, cb, cp, fileTxt);
         }
         //delf
         if(strcmp(comando, "delf") == 0){
             fscanf(fileQry, "%d", &j);
+            delf(listas, j);
         }
         // //delf*
         if(strcmp(comando, "delf*") == 0){
             fscanf(fileQry, "%d %d", &j, &k);
+            delfAst(listas, j, k);
         }
         
         // //T2_ED
