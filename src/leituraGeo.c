@@ -19,9 +19,11 @@
 #include "hidrante.h"
 #include "semaforo.h"
 #include "radioBase.h"
+//T3_ED
+#include "postoSaude.h"
+#include "densidadeDemografica.h"
 
-
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA};
 
 typedef struct nx{
     int i;
@@ -59,7 +61,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     //Variaveis auxiliares
     char comando[3], cp[22], cb[22], cep[20], sw[22], cw[22], rw[22], cfill[22], cstrk[22], buffer;
     int id, bufferSize = 0;
-    float r, x, y, w, h;
+    float r, x, y, w, h, d;
     char* txt = NULL;
 
     //Variáveis auxiliares para formas
@@ -70,10 +72,11 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     Hidrante hidranteAux = NULL;
     Semaforo semaforoAux = NULL;
     RadioBase radiobaseAux = NULL;
+    PostoSaude postoSaudeAux = NULL;
+    DensidadeDemografica densidadeDemograficaAux = NULL;
 
     while(1){
         fscanf(fileGeo, "%s", comando);
-
         if(feof(fileGeo)){
             break;
         }
@@ -118,6 +121,8 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             bufferSize = 0;
             free(txt);
         }
+
+        
         //T2_ED
         //Comando: q
         else if(strcmp(comando, "q") == 0){
@@ -198,15 +203,23 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             coresPadraoSetEspessuraCirculos(cores, cw);
             coresPadraoSetEspessuraRetangulos(cores, rw);
         }
-        // //T3_ED
-        // //Comando ps
-        // else if(strcmp(comando, "ps") == 0){
-        //     fscanf(fileGeo, "%f %f", &x, &y);
-        // }
-        // //Comando dd
-        // else if(strcmp(comando, "dd") == 0){
-        //     fscanf(fileGeo, "%f %f %f %f %f", &x, &y, &w, &h, &d);
-        // }
+
+
+        //T3_ED
+        //Comando: ps
+        else if(strcmp(comando, "ps") == 0){
+            fscanf(fileGeo, "%f %f", &x, &y);
+
+            postoSaudeAux = criaPostoSaude(x, y);
+            insert(listas[POSTOSAUDE], postoSaudeAux);
+        }
+        //Comando: dd
+        else if(strcmp(comando, "dd") == 0){
+            fscanf(fileGeo, "%f %f %f %f %f", &x, &y, &w, &h, &d);
+            
+            densidadeDemograficaAux = criaDensidadeDemografica(x, y, w, h, d);
+            insert(listas[DENSIDADEDEMOGRAFICA], densidadeDemograficaAux);
+        }
     }
 
     fclose(fileGeo);

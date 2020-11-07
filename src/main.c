@@ -16,7 +16,7 @@
 #include "doublyLinkedList.h"
 
 //Enumeration para todas as listas utilizadas
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA};
 
 int main(int argc, char* argv[]){
     CorPadrao cores = criaCorPadrao("0.5", "coral", "saddlebrown", "0.5", "red", "darkred", "0.5", "deeppink", "mediumvioletred", "0.5", "green", "red", "0.5", "0.5");
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]){
 
     //Cria Listas
     DoublyLinkedList listas[8];
-    for(int i = CIRCULO; i <= RADIOBASE; i++){
+    for(int i = CIRCULO; i <= DENSIDADEDEMOGRAFICA; i++){
         listas[i] = create();
     }
 
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]){
     }
 
     //Deleta todas as listas
-    for(int i = CIRCULO; i <= RADIOBASE; i++){
+    for(int i = CIRCULO; i <= DENSIDADEDEMOGRAFICA; i++){
         //Caso a lista seja uma lista de texto, deleta todos os textos alocados
         if(i == TEXTO){
             for(Node aux = getFirst(listas[TEXTO]); aux != NULL; aux = getNext(aux)){
