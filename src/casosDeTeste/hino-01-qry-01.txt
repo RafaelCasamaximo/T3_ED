@@ -1,0 +1,42 @@
+o? 1 2
+CIRCULO CIRCULO NÃO SOBREPÕE
+
+i? 3 10.000000 10.000000
+CIRCULO NÃO CONTÉM
+
+pnt blue blue
+10.000000 16.250000
+
+pnt red magenta
+22.000000 28.750000
+
+pnt red magenta
+28.000000 28.750000
+
+pnt red magenta
+34.000000 28.750000
+
+pnt red magenta
+40.000000 28.750000
+
+pnt red magenta
+46.000000 28.750000
+
+pnt red magenta
+52.000000 35.000000
+
+pnt red magenta
+52.000000 41.250000
+
+pnt red magenta
+52.000000 47.500000
+
+pnt red magenta
+10.000000 53.750000
+
+pnt red magenta
+16.000000 53.750000
+
+pnt red magenta
+22.000000 53.750000
+

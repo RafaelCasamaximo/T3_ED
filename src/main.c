@@ -115,7 +115,7 @@ int main(int argc, char* argv[]){
         readQry(listas, dirQry, dirTxt);
 
         //Desenha o svg do QRY
-        //desenhaSvgQry(listas, cores, dirSaidaGeoQry);
+        desenhaSvgQry(listas, cores, dirSaidaGeoQry);
     }
 
     //Deleta todas as listas

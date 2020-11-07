@@ -1,53 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "utilitario.h"
 #include "doublyLinkedList.h"
 #include "circulo.h"
 #include "retangulo.h"
 #include "texto.h"
+#include "linha.h"
+#include "quadra.h"
+#include "hidrante.h"
+#include "radioBase.h"
+#include "semaforo.h"
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
 
 
-int inside(DoublyLinkedList* list, int id, float xp, float yp){
-    int idAux = 0;
-    for(int i = CIRCULO; i <= RETANGULO; i++){
-        for(Node aux = getFirst(list[i]); aux != NULL; aux = getNext(aux)){
+int insideCirculo(float x, float y, float cx, float cy, float r){
+    return (distanciaQuadrada(x, y, cx, cy) < r * r ? 1 : 0);
+}
+
+int insideRetangulo(float x, float y, float rx, float ry, float rw, float rh){
+    if((x == rx || x == rx+rw) || (y == ry || y == ry + rh)){
+        return 2;
+    }
+    return ((x > rx && x < rx + rw) && (y > ry && y < ry + rh) ? 1 : 0);
+}
+
+int inside(DoublyLinkedList* listas, int j, float x, float y, float* centroDeMassaX, float* centroDeMassaY, FILE* fileTxt){
+    int id = 0;
+    
+    fprintf(fileTxt, "i? %d %f %f\n", j, x, y);
+
+    for(int i = 0; i < 2; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            Info info = getInfo(aux);
             if(i == CIRCULO){
-               idAux = circuloGetId(getInfo(aux));
+                id = circuloGetId(info);
             }
-            else{
-                idAux = retanguloGetId(getInfo(aux));
+            else if(i == RETANGULO){
+                id = retanguloGetId(info);
             }
-        
-            if(id == idAux){
+            if(id == j){
                 if(i == CIRCULO){
-                    float circX = circuloGetX(getInfo(aux));
-                    float circY = circuloGetY(getInfo(aux));
-                    float circR = circuloGetRaio(getInfo(aux));
-
-                    if(distanciaQuadrada(xp, yp, circX, circY) <= circR*circR){
-                        return 1;
-                    }
-                    else{
-                        return 0;
-                    }
+                    *centroDeMassaX = circuloGetX(info);
+                    *centroDeMassaY = circuloGetY(info);
+                    int resultado = insideCirculo(x, y, circuloGetX(info), circuloGetY(info), circuloGetRaio(info));
+                    fprintf(fileTxt, "CIRCULO %s\n\n", resultado == 1 ? "CONTÉM" : "NÃO CONTÉM");
+                    return resultado;
                 }
-                else{
-                    float retX = retanguloGetX(getInfo(aux));
-                    float retY = retanguloGetY(getInfo(aux));
-                    float retW = retanguloGetWidth(getInfo(aux));
-                    float retH = retanguloGetHeight(getInfo(aux));
-
-                    //x <= xp <= x+w
-                    //y <= yp <= y+h
-                    if((retX <= xp && xp <= retX+retW)&&(retY <= yp && yp <= retY+retH)){
-                        return 1;
-                    }
-                    else{
-                        return 0;
-                    }
+                else if(i == RETANGULO){
+                    *centroDeMassaX = retanguloGetX(info) + (retanguloGetWidth(info) / 2);
+                    *centroDeMassaY = retanguloGetY(info) + (retanguloGetHeight(info) / 2);
+                    int resultado = insideRetangulo(x, y, retanguloGetX(info), retanguloGetY(info), retanguloGetWidth(info), retanguloGetHeight(info));
+                    fprintf(fileTxt, "CIRCULO %s\n\n", resultado == 1 ? "CONTÉM" : "NÃO CONTÉM");
+                    return resultado;
                 }
             }
         }
@@ -56,12 +63,170 @@ int inside(DoublyLinkedList* list, int id, float xp, float yp){
 }
 
 
+int overlayCirculoRetangulo(Circulo c, Retangulo r){
+    float dX = circuloGetX(c) - maxF(retanguloGetX(r), minF(circuloGetX(c), retanguloGetX(r) + retanguloGetWidth(r)));
+    float dY = circuloGetY(c) - maxF(retanguloGetY(r), minF(circuloGetY(c), retanguloGetY(r) + retanguloGetHeight(r)));
+    if((dX * dX + dY * dY) <= (circuloGetRaio(c) * circuloGetRaio(c))){
+        return 1;
+    } 
+    return 0;
+}
+
+int overlayCirculoCirculo(Circulo c1, Circulo c2){
+    if(distanciaQuadrada(circuloGetX(c1), circuloGetY(c1), circuloGetX(c2), circuloGetY(c2)) <= (circuloGetRaio(c1) + circuloGetRaio(c2)) * (circuloGetRaio(c1) + circuloGetRaio(c2))){
+        return 1;
+    }
+    return 0;
+}
+
+int overlayRetanguloRetangulo(Retangulo r1, Retangulo r2){
+
+    int inside = -1;
+
+    float r1X = retanguloGetX(r1);
+    float r1Y = retanguloGetY(r1);
+    float r1W = retanguloGetWidth(r1);
+    float r1H = retanguloGetHeight(r1);
+
+    float r2X = retanguloGetX(r2);
+    float r2Y = retanguloGetY(r2);
+    float r2W = retanguloGetWidth(r2);
+    float r2H = retanguloGetHeight(r2);
+
+    //Existe algum ponto do r1 contido no r2?
+    inside = insideRetangulo(r1X, r1Y, r2X, r2Y, r2W, r2H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r1X + r1W, r1Y, r2X, r2Y, r2W, r2H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r1X, r1Y + r1H, r2X, r2Y, r2W, r2H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r1X + r1W, r1Y + r1H, r2X, r2Y, r2W, r2H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+
+    //Existe algum ponto do r2 contido no r1?
+    inside = insideRetangulo(r2X, r2Y, r1X, r1Y, r1W, r1H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r2X + r2W, r2Y, r1X, r1Y, r1W, r1H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r2X, r2Y + r2H, r1X, r1Y, r1W, r1H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    inside = insideRetangulo(r2X + r2W, r2Y + r2H, r1X, r1Y, r1W, r1H);
+    if(inside == 1 || inside == 2){
+        return 1;
+    }
+    
+    return 0;
+}
+
+
+int overlay(DoublyLinkedList* listas, int j, int k, float* x, float* y, float* w, float* h, FILE* fileTxt){
+    float vX[4] = {0, 0, 0, 0};
+    float vY[4] = {0, 0, 0, 0};
+    
+    int overlay = -1;
+
+    Info infoJ = NULL;
+    int tipoJ = -1;
+    Info infoK = NULL;
+    int tipoK = -1;
+
+    fprintf(fileTxt, "o? %d %d\n", j, k);
+
+    int idAux = 0;
+
+    for(int i = 0; i < 2; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            if(i == CIRCULO){
+                idAux = circuloGetId(getInfo(aux));
+            }
+            else if(i == RETANGULO){
+                idAux = retanguloGetId(getInfo(aux));
+            }
+            if(idAux == j){
+                infoJ = getInfo(aux);
+                tipoJ = i;
+            }
+            if(idAux == k){
+                infoK = getInfo(aux);
+                tipoK = i;
+            }
+        }
+    }
+
+    if(tipoJ == CIRCULO){
+        vX[0] = circuloGetX(infoJ) + circuloGetRaio(infoJ);
+        vX[1] = circuloGetX(infoJ) - circuloGetRaio(infoJ);
+        vY[0] = circuloGetY(infoJ) + circuloGetRaio(infoJ);
+        vY[1] = circuloGetY(infoJ) - circuloGetRaio(infoJ);
+    }
+    else if(tipoJ == RETANGULO){
+        vX[0] = retanguloGetX(infoJ);
+        vX[1] = retanguloGetX(infoJ) + retanguloGetWidth(infoJ);
+        vY[0] = retanguloGetY(infoJ);
+        vY[1] = retanguloGetY(infoJ) + retanguloGetHeight(infoJ);
+    }
+
+    if(tipoK == CIRCULO){
+        vX[2] = circuloGetX(infoK) + circuloGetRaio(infoK);
+        vX[3] = circuloGetX(infoK) - circuloGetRaio(infoK);
+        vY[2] = circuloGetY(infoK) + circuloGetRaio(infoK);
+        vY[3] = circuloGetY(infoK) - circuloGetRaio(infoK);
+    }
+    else if(tipoK == RETANGULO){
+        vX[2] = retanguloGetX(infoK);
+        vX[3] = retanguloGetX(infoK) + retanguloGetWidth(infoK);
+        vY[2] = retanguloGetY(infoK);
+        vY[3] = retanguloGetY(infoK) + retanguloGetHeight(infoK);
+    }
+
+    *x = minV(vX, 4);
+    *y = minV(vY, 4);
+    *w = maxV(vX, 4) - *x;
+    *h = maxV(vY, 4) - *y;
+
+    if(tipoJ == CIRCULO && tipoK == CIRCULO){
+        overlay = overlayCirculoCirculo(infoJ, infoK);
+        fprintf(fileTxt, "CIRCULO CIRCULO %s\n\n", overlay == 1 ? "SOBREPÕE" : "NÃO SOBREPÕE");
+        return overlay;
+    }
+    else if(tipoJ == RETANGULO && tipoK == RETANGULO){
+        overlay = overlayRetanguloRetangulo(infoJ, infoK);
+        fprintf(fileTxt, "RETANGULO RETANGULO %s\n\n", overlay == 1 ? "SOBREPÕE" : "NÃO SOBREPÕE");
+        return overlay;
+    }
+    else if(tipoJ == CIRCULO && tipoK == RETANGULO){
+        overlay = overlayCirculoRetangulo(infoJ, infoK);
+        fprintf(fileTxt, "CIRCULO RETANGULO %s\n\n", overlay == 1 ? "SOBREPÕE" : "NÃO SOBREPÕE");
+
+        return overlay;
+    }
+    else if(tipoJ == RETANGULO && tipoK == CIRCULO){
+        overlay = overlayCirculoRetangulo(infoK, infoJ);
+        fprintf(fileTxt, "RETANGULO CIRCULO %s\n\n", overlay == 1 ? "SOBREPÕE" : "NÃO SOBREPÕE");
+        return overlay;
+    }
+    return -1;
+}
 
 
 void pnt(DoublyLinkedList* listas, int j, char* cb, char* cp, FILE* fileTxt){
     int id = 0;
 
-    Info info;
+    Info info;    
 
     for(int i = 0; i < 3; i++){
         for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
@@ -105,25 +270,26 @@ void pntAst(DoublyLinkedList* listas, int j, int k, char* cb, char* cp, FILE* fi
 }
  
 
-void delf(DoublyLinkedList* listas, int j){
-    Info info;
+void delf(DoublyLinkedList* listas, int j, FILE* fileTxt){
     int id;
     
     for(int i = 0; i < 3; i++){
         for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
-            info = getInfo(aux);
             if(i == CIRCULO){
-                id = circuloGetId(info);
+                id = circuloGetId(getInfo(aux));
+                fprintf(fileTxt, "\nID: %d X: %f Y: %f R: %f CB: %s CP: %s\n", id, circuloGetX(getInfo(aux)), circuloGetY(getInfo(aux)), circuloGetRaio(getInfo(aux)), circuloGetCorBorda(getInfo(aux)), circuloGetCorPreenchimento(getInfo(aux)));
             }
             else if(i == RETANGULO){
-                id = retanguloGetId(info);
+                id = retanguloGetId(getInfo(aux));
+                fprintf(fileTxt, "\nID: %d X: %f Y: %f W: %f H: %f CB: %s CP: %s\n", id, retanguloGetX(getInfo(aux)), retanguloGetY(getInfo(aux)), retanguloGetWidth(getInfo(aux)), retanguloGetHeight(getInfo(aux)), retanguloGetCorBorda(getInfo(aux)), retanguloGetCorPreenchimento(getInfo(aux)));
             }
             else if(i == TEXTO){
-                id = textoGetId(info);
+                id = textoGetId(getInfo(aux));
+                fprintf(fileTxt, "\nID: %d X: %f Y: %f CB: %s CP: %s TEXTO: %s\n", id, textoGetX(getInfo(aux)), textoGetY(getInfo(aux)), textoGetCorBorda(getInfo(aux)), textoGetCorPreenchimento(getInfo(aux)), textoGetTexto(getInfo(aux)));
             }
             if(id == j){
                 if(i == TEXTO){
-                    textoDeletaTxt(info);
+                    textoDeletaTxt(getInfo(aux));
                 }
                 removeNode(listas[i], aux);
                 return;
@@ -132,9 +298,274 @@ void delf(DoublyLinkedList* listas, int j){
     }
 }
 
-
-void delfAst(DoublyLinkedList* listas, int j, int k){
+void delfAst(DoublyLinkedList* listas, int j, int k, FILE* fileTxt){
     for(int i = min(j, k); i <= max(j, k); i++){
-        delf(listas, i);
+        delf(listas, i, fileTxt);
     }
+}
+
+void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt){
+    for(int i = QUADRA; i <= RADIOBASE; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            char id[20];
+            float x = 0, y = 0;
+            if(i == QUADRA){
+                strcpy(id, quadraGetCep(getInfo(aux)));
+                x = quadraGetX(getInfo(aux));
+                y = quadraGetY(getInfo(aux));
+                fprintf(fileTxt, "\nCEP: %s X: %f Y: %f W: %f H: %f\n", id, quadraGetX(getInfo(aux)), quadraGetY(getInfo(aux)), quadraGetWidth(getInfo(aux)), quadraGetHeight(getInfo(aux)));
+            }
+            else if(i == HIDRANTE){
+                strcpy(id, hidranteGetId(getInfo(aux)));
+                x = hidranteGetX(getInfo(aux));
+                y = hidranteGetY(getInfo(aux));
+                fprintf(fileTxt, "\nID: %s X: %f Y: %f\n", id, hidranteGetX(getInfo(aux)), hidranteGetY(getInfo(aux)));
+            }
+            else if(i == SEMAFORO){
+                strcpy(id, semaforoGetId(getInfo(aux)));
+                x = semaforoGetX(getInfo(aux));
+                y = semaforoGetY(getInfo(aux));
+                fprintf(fileTxt, "\nID: %s X: %f Y: %f\n", id, semaforoGetX(getInfo(aux)), semaforoGetY(getInfo(aux)));
+            }
+            else if(i == RADIOBASE){
+                strcpy(id, radioBaseGetId(getInfo(aux)));
+                x = radioBaseGetX(getInfo(aux));
+                y = radioBaseGetY(getInfo(aux));
+                fprintf(fileTxt, "\nID: %s X: %f Y: %f\n", id, radioBaseGetX(getInfo(aux)), radioBaseGetY(getInfo(aux)));
+            }
+
+            if(strcmp(id, cep) == 0){
+                insert(listas[LINHA], criaLinha(x, y, x, 0, 0, 0, id));
+                removeNode(listas[i], aux);
+                return;
+            }
+        }
+    }
+}
+
+void cbq(DoublyLinkedList* listas, float x, float y, float r, char* cb, FILE* fileTxt){
+    float xQuadra = 0, yQuadra = 0, wQuadra = 0, hQuadra = 0;
+    
+    for(Node aux = getFirst(listas[QUADRA]); aux != NULL; aux = getNext(aux)){
+        xQuadra = quadraGetX(getInfo(aux));
+        yQuadra = quadraGetY(getInfo(aux));
+        wQuadra = quadraGetWidth(getInfo(aux));
+        hQuadra = quadraGetHeight(getInfo(aux));
+
+        /*
+        x,y 
+        x + w, y
+        x, y + h
+        x + w, y + h
+        */
+        int insideP1 = insideCirculo(xQuadra, yQuadra, x, y, r);
+        int insideP2 = insideCirculo(xQuadra + wQuadra, yQuadra, x, y, r);
+        int insideP3 = insideCirculo(xQuadra, yQuadra + hQuadra, x, y, r);
+        int insideP4 = insideCirculo(xQuadra +  wQuadra, yQuadra + hQuadra, x, y, r);
+        
+        if(insideP1 == 1 && insideP2 == 1 && insideP3 == 1 && insideP4 == 1){
+            quadraSetCorBorda(getInfo(aux), cb);
+            fprintf(fileTxt, "\nCEP: %s\n", quadraGetCep(getInfo(aux)));
+        }
+    }
+}
+
+void crd(DoublyLinkedList* listas, char* id, FILE* fileTxt){
+    char idAux[20];
+    for(int i = QUADRA; i <= RADIOBASE; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            if(i == QUADRA){
+                strcpy(idAux, quadraGetCep(getInfo(aux)));
+            }
+            else if(i == HIDRANTE){
+                strcpy(idAux, hidranteGetId(getInfo(aux)));
+            }
+            else if(i == SEMAFORO){
+                strcpy(idAux, semaforoGetId(getInfo(aux)));
+            }
+            else if(i == RADIOBASE){
+                strcpy(idAux, radioBaseGetId(getInfo(aux)));
+            }
+
+            if(strcmp(id, idAux) == 0){
+                if(i == QUADRA){
+                    fprintf(fileTxt, "\nTIPO: QUADRA X: %f Y: %f\n", quadraGetX(getInfo(aux)), quadraGetY(getInfo(aux)));
+                }
+                else if(i == HIDRANTE){
+                    fprintf(fileTxt, "\nTIPO: HIDRANTE X: %f Y: %f\n", hidranteGetX(getInfo(aux)), hidranteGetY(getInfo(aux)));
+                }
+                else if(i == SEMAFORO){
+                    fprintf(fileTxt, "\nTIPO: SEMAFORO X: %f Y: %f\n", semaforoGetX(getInfo(aux)), semaforoGetY(getInfo(aux)));
+                }
+                else if(i == RADIOBASE){
+                    fprintf(fileTxt, "\nTIPO: RADIO BASE X: %f Y: %f\n", radioBaseGetX(getInfo(aux)), radioBaseGetY(getInfo(aux)));
+                }
+            }
+
+        }
+    }
+}
+
+
+void car(DoublyLinkedList* listas, float x, float y, float w, float h, int id, FILE* fileTxt){
+    float areaTotal = 0;
+    char areaFiguraString[10];
+    char areaString[22];
+
+    int counter = id;
+    fprintf(fileTxt, "----------------------------\nCAR X: %f Y: %f W: %f H: %f - LISTA DE CEPS E IDs DAS QUADRAS E EQUIPAMENTOS: \n", x, y, w, h);
+    for(int i = QUADRA; i <= RADIOBASE; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            counter--;
+            if(i == QUADRA){
+                float xQuadra = quadraGetX(getInfo(aux));
+                float yQuadra = quadraGetY(getInfo(aux));
+                float wQuadra = quadraGetWidth(getInfo(aux));
+                float hQuadra = quadraGetHeight(getInfo(aux));
+
+                int insideP1 = insideRetangulo(xQuadra, yQuadra, x, y, w, h);
+                int insideP2 = insideRetangulo(xQuadra + wQuadra, yQuadra, x, y, w, h);
+                int insideP3 = insideRetangulo(xQuadra, yQuadra + hQuadra, x, y, w, h);
+                int insideP4 = insideRetangulo(xQuadra + wQuadra, yQuadra + hQuadra, x, y, w, h);
+
+                if(insideP1 == 1 && insideP2 == 1 && insideP3 == 1 && insideP4 == 1){
+                    areaTotal += quadraGetArea(getInfo(aux));
+                    sprintf(areaFiguraString, "%f", quadraGetArea(getInfo(aux)));
+                    insert(listas[TEXTO], criaTexto(counter, 10, xQuadra + (wQuadra/2), yQuadra + (hQuadra/2), areaFiguraString, "seashell", "black"));
+                    fprintf(fileTxt, "TIPO: QUADRA / CEP: %s\n", quadraGetCep(getInfo(aux)));
+                }
+            }
+            else if(i == HIDRANTE){
+                float xH = hidranteGetX(getInfo(aux));
+                float yH = hidranteGetY(getInfo(aux));
+                int p = insideRetangulo(xH, yH, x, y, w, h);
+
+                if(p == 1){
+                    areaTotal += 28.27; //porque o raio padrão no svg é 3, utiliza-se Pi(r^2)
+                    insert(listas[TEXTO], criaTexto(counter, 6, xH , yH, "28.27", "seashell", "black"));
+                    fprintf(fileTxt, "TIPO: HIDRANTE / ID: %s \n", hidranteGetId(getInfo(aux)));
+                }
+            }
+            else if(i == SEMAFORO){
+                float xS = semaforoGetX(getInfo(aux));
+                float yS = semaforoGetY(getInfo(aux));
+                int p = insideRetangulo(yS, yS, x, y, w, h);
+                if(p == 1){
+                    areaTotal += 28.27;
+                    insert(listas[TEXTO], criaTexto(counter, 6, xS , yS, "28.27", "seashell", "black"));
+                    fprintf(fileTxt, "TIPO: SEMAFORO / ID: %s\n", semaforoGetId(getInfo(aux)));
+                }
+            }
+            else if(i == RADIOBASE){
+                float xR = semaforoGetX(getInfo(aux));
+                float yR = semaforoGetY(getInfo(aux));
+                int p = insideRetangulo(xR, yR, x, y, w, h);
+                if(p == 1){
+                    areaTotal += 28.27;
+                    insert(listas[TEXTO], criaTexto(counter, 6, xR , yR, "28.27", "seashell", "black"));
+                    fprintf(fileTxt, "TIPO: RADIOBASE / ID: %s\n", radioBaseGetId(getInfo(aux)));
+                }
+            }
+        }
+    }
+
+    sprintf(areaString, "%f", areaTotal);
+    insert(listas[RETANGULO], criaRetangulo(counter-50, 0, x, y, w, h, "black", "none"));
+    insert(listas[LINHA], criaLinha(x, y, x, 0, 0, 0, areaString));
+    fprintf(fileTxt, "\nÁREA TOTAL: %f\n----------------------------\n", areaTotal);
+}
+
+
+void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identificadorFigura, FILE* fileTxt){
+    char idAux[20];
+    float x = 0;
+    float y = 0;
+    fprintf(fileTxt, "----------------------------\nDQ - HASHTAG (1 - SIM/ 0 - NÃO): %d ID: %s R: %f\n", hashtag, id, r);
+    
+    for(int i = HIDRANTE; i <= RADIOBASE; i++){
+        for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
+            //Acha o ID do equipamento urbano que a gente precisa
+            if(i == SEMAFORO){
+                strcpy(idAux, semaforoGetId(getInfo(aux)));
+            }
+            else if(i == HIDRANTE){
+                strcpy(idAux, hidranteGetId(getInfo(aux)));
+            }
+            else if(i == RADIOBASE){
+                strcpy(idAux, radioBaseGetId(getInfo(aux)));
+            }
+            if(strcmp(idAux, id) == 0){
+                //Pega o X e Y do equipamento
+                if(i == SEMAFORO){
+                    x = semaforoGetX(getInfo(aux));
+                    y = semaforoGetY(getInfo(aux));
+                    fprintf(fileTxt, "SEMAFORO - X: %f Y: %f\n", x ,y);
+                }
+                else if(i == HIDRANTE){
+                    x = hidranteGetX(getInfo(aux));
+                    y = hidranteGetY(getInfo(aux));
+                    fprintf(fileTxt, "HIDRANTE - X: %f Y: %f\n", x ,y);
+                }
+                else if(i == RADIOBASE){
+                    x = radioBaseGetX(getInfo(aux));
+                    y = radioBaseGetY(getInfo(aux));
+                    fprintf(fileTxt, "RADIOBASE - X: %f Y: %f\n", x ,y);
+                }
+            }
+        }
+    }
+    //A partir desse momento a gente já tem o X e o Y (da parte anterior) e o raio do parâmetro
+    //Remove as quadras (pois existe hashtag)
+    //Percorre a lista de quadras pra ver quais estão completamente internas ao circulo
+    if(hashtag == 1){
+        Node auxDelete = getFirst(listas[QUADRA]);
+        while(auxDelete != NULL){
+            float xQuadra = quadraGetX(getInfo(auxDelete));
+            float yQuadra = quadraGetY(getInfo(auxDelete));
+            float wQuadra = quadraGetWidth(getInfo(auxDelete));
+            float hQuadra = quadraGetHeight(getInfo(auxDelete));
+
+            int insideP1 = insideCirculo(xQuadra, yQuadra, x, y, r);
+            int insideP2 = insideCirculo(xQuadra + wQuadra, yQuadra, x, y, r);
+            int insideP3 = insideCirculo(xQuadra, yQuadra + hQuadra, x, y, r);
+            int insideP4 = insideCirculo(xQuadra + wQuadra, yQuadra + hQuadra, x, y, r);
+
+            //Se a quadra tá completamente dentro do circulo deleta ela
+            Node tempAux = getNext(auxDelete);
+            if(insideP1 == 1 && insideP2 == 1 && insideP3 == 1 && insideP4 == 1){
+                fprintf(fileTxt, "\n QUADRA / CEP: %s", quadraGetCep(getInfo(auxDelete)));
+                removeNode(listas[QUADRA], auxDelete);
+            }
+            auxDelete = tempAux;
+        }
+    }
+
+    //Não remove as quadras. Ao invés disso, só muda a cor delas e deixa a borda arredondada (pois não existe hashtag)
+    //Percorre a lista de quadras pra ver quais estão completamente internas ao circulo
+    else if(hashtag == 0){
+        for(Node auxMudaCor = getFirst(listas[QUADRA]); auxMudaCor != NULL; auxMudaCor = getNext(auxMudaCor)){
+            float xQuadra = quadraGetX(getInfo(auxMudaCor));
+            float yQuadra = quadraGetY(getInfo(auxMudaCor));
+            float wQuadra = quadraGetWidth(getInfo(auxMudaCor));
+            float hQuadra = quadraGetHeight(getInfo(auxMudaCor));
+
+            int insideP1 = insideCirculo(xQuadra, yQuadra, x, y, r);
+            int insideP2 = insideCirculo(xQuadra + wQuadra, yQuadra, x, y, r);
+            int insideP3 = insideCirculo(xQuadra, yQuadra + hQuadra, x, y, r);
+            int insideP4 = insideCirculo(xQuadra + wQuadra, yQuadra + hQuadra, x, y, r);
+
+            //Muda a cor do preenchimento e da borda e deixa o canto arredondado
+            if(insideP1 == 1 && insideP2 == 1 && insideP3 == 1 && insideP4 == 1){
+                fprintf(fileTxt, "\n QUADRA / CEP: %s", quadraGetCep(getInfo(auxMudaCor)));
+                quadraSetArredondado(getInfo(auxMudaCor), 1);
+                quadraSetCorBorda(getInfo(auxMudaCor), "olive");
+                quadraSetCorPreenchimento(getInfo(auxMudaCor), "beige");
+            }
+
+        }
+    }
+    //Desenha os dois aneis em volta do equipamento urbano e o circulo da área de deleção
+    insert(listas[CIRCULO], criaCirculo(identificadorFigura, 7, x, y, "blue", "none"));
+    insert(listas[CIRCULO], criaCirculo(identificadorFigura - 1, 11, x, y, "blue", "none"));
+    insert(listas[CIRCULO], criaCirculo(identificadorFigura - 2, r, x, y, "blue", "none"));
 }

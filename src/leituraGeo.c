@@ -149,7 +149,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
                 insert(listas[SEMAFORO], semaforoAux);
             }
         }
-        // //Comando: rb
+        //Comando: rb
         else if(strcmp(comando, "rb") == 0){
             fscanf(fileGeo, "%s %f %f", cep, &x, &y);
 
@@ -159,7 +159,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
                 insert(listas[RADIOBASE], radiobaseAux);
             }   
         }
-        // //Comando: cq
+        //Comando: cq
         else if(strcmp(comando, "cq") == 0){
             fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
 
@@ -167,7 +167,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             coresPadraoSetBordaQuadras(cores, cstrk);
             coresPadraoSetEspessuraQuadras(cores, sw);
         }   
-        // //Comando: ch
+        //Comando: ch
         else if(strcmp(comando, "ch") == 0){
             fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
 
@@ -175,7 +175,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             coresPadraoSetBordaHidrantes(cores, cstrk);
             coresPadraoSetEspessuraHidrantes(cores, sw);
         }
-        // //Comando: cr
+        //Comando: cr
         else if(strcmp(comando, "cr") == 0){
             fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
 
@@ -183,7 +183,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             coresPadraoSetBordaRadioBases(cores, cstrk);
             coresPadraoSetEspessuraRadioBases(cores, sw);
         }
-        // //Comando: cs
+        //Comando: cs
         else if(strcmp(comando, "cs") == 0){
             fscanf(fileGeo, "%s %s %s", sw, cfill, cstrk);
 
@@ -191,7 +191,7 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
             coresPadraoSetBordaSemaforos(cores, cstrk);
             coresPadraoSetEspessuraSemaforos(cores, sw);
         }
-        // //Comando: sw
+        //Comando: sw
         else if(strcmp(comando, "sw") == 0){
             fscanf(fileGeo, "%s %s", cw, rw);
 

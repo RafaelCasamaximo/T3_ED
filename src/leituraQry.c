@@ -12,7 +12,6 @@
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
 
 
-
 void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
 
     FILE* fileTxt = NULL;
@@ -54,10 +53,31 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         //o?
         if(strcmp(comando, "o?") == 0){
             fscanf(fileQry, "%d %d", &j, &k);
+            sobrepoe = overlay(listas, j, k, &x, &y, &w, &h, fileTxt);
+            if(sobrepoe == 0){
+                retanguloAux = criaRetangulo(id, 1, x, y, w, h, "black", "none");
+                insert(listas[RETANGULO], retanguloAux);
+            }
+            if(sobrepoe == 1){
+                retanguloAux = criaRetangulo(id, 0, x, y, w, h, "black", "none");
+                insert(listas[RETANGULO], retanguloAux);
+            }
+            printf("%d", sobrepoe);
         }
         //i?        
         if(strcmp(comando, "i?") == 0){
             fscanf(fileQry, "%d %f %f", &j, &x, &y);
+            interno = inside(listas, j, x, y, &centroDeMassaX, &centroDeMassaY, fileTxt);
+            if(interno == 1){ //dentro
+                linhaAux = criaLinha(x, y, centroDeMassaX, centroDeMassaY, 1, 1, "0");
+            }
+            else if(interno == 0 || interno == 2){ //Fora e/ou borda
+                linhaAux = criaLinha(x, y, centroDeMassaX, centroDeMassaY, 1, 0, "0");
+            }
+            if(interno == 1 || interno == 0 || interno == 2){
+                insert(listas[LINHA], linhaAux);
+            }
+            
         }
         //pnt
         if(strcmp(comando, "pnt") == 0){
@@ -72,36 +92,49 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         //delf
         if(strcmp(comando, "delf") == 0){
             fscanf(fileQry, "%d", &j);
-            delf(listas, j);
+            delf(listas, j, fileTxt);
         }
-        // //delf*
+        //delf*
         if(strcmp(comando, "delf*") == 0){
             fscanf(fileQry, "%d %d", &j, &k);
-            delfAst(listas, j, k);
+            delfAst(listas, j, k, fileTxt);
         }
         
-        // //T2_ED
-        // //dq
-        // if(strcmp(comando, "dq") == 0){
-        //     //Logica diferente
-        // }
-        // //del
-        // if(strcmp(comando, "del") == 0){
-        //     fscanf(fileQry, "%s", cep);
-        // }
-        // //cbq    
-        // if(strcmp(comando, "cbq") == 0){
-        //     fscanf(fileQry, "%f %f %f %s", &x, &y, &r, cb);
-        // }   
-        // //crd?      
-        // if(strcmp(comando, "crd?") == 0){
-
-        // }
-        // //car
-        // if(strcmp(comando, "car") == 0){
-        //     fscanf(fileQry, "%f %f %f %f", &x, &y, &w, &h);
-        // }   
-        // id--;
+        //T2_ED
+        //dq
+        if(strcmp(comando, "dq") == 0){
+            char hashtag = getc(fileQry);
+            hashtag = getc(fileQry);
+            if(hashtag == '#'){
+                fscanf(fileQry, "%s %f", cep, &r);
+                dq(listas, cep, r, 1, id, fileTxt);
+            }
+            fseek(fileQry, -2, SEEK_CUR);
+            fscanf(fileQry, "%s %f", cep, &r);
+            dq(listas, cep, r, 0, id, fileTxt);
+            id -= 2;
+        }
+        //del
+        if(strcmp(comando, "del") == 0){
+            fscanf(fileQry, "%s", cep);
+            del(listas, cep, fileTxt);
+        }
+        //cbq    
+        if(strcmp(comando, "cbq") == 0){
+            fscanf(fileQry, "%f %f %f %s", &x, &y, &r, cb);
+            cbq(listas, x, y, r, cb, fileTxt);
+        }   
+        //crd?      
+        if(strcmp(comando, "crd?") == 0){
+            fscanf(fileQry, "%s", cep);
+            crd(listas, cep, fileTxt);
+        }
+        //car
+        if(strcmp(comando, "car") == 0){
+            fscanf(fileQry, "%f %f %f %f", &x, &y, &w, &h);
+            car(listas, x, y, w, h, id, fileTxt);
+        }   
+        id--;
     }
 
     fclose(fileTxt);
