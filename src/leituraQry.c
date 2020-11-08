@@ -9,7 +9,7 @@
 #include "corPadrao.h"
 #include "qry.h"
 
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
 
 void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
@@ -30,7 +30,7 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
 
     int id = -1;
     
-    int j = 0, k = 0;
+    int j = 0, k = 0, n = 0, num = 0;
     int interno = 0;
     int sobrepoe = 0;
     float x = 0, y = 0, w = 0, h = 0, r = 0;
@@ -38,6 +38,7 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
     char comando[6];
     char cb[22], cp[22];
     char cep[20];
+    char face;
 
     Linha linhaAux = NULL;
     Retangulo retanguloAux = NULL;
@@ -100,6 +101,7 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
             delfAst(listas, j, k, fileTxt);
         }
         
+
         //T2_ED
         //dq
         if(strcmp(comando, "dq") == 0){
@@ -134,7 +136,26 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
             fscanf(fileQry, "%f %f %f %f", &x, &y, &w, &h);
             car(listas, x, y, w, h, id, fileTxt);
         }   
+
+
+        //T3_ED
+        //cv
+        if(strcmp(comando, "cv") == 0){
+            fscanf(fileQry, "%d %s %c %d", &n, cep, &face, &num);
+            cv(listas, n, cep, face, num);
+        }
+        //soc
+        if(strcmp(comando, "soc") == 0){
+            fscanf(fileQry, "%d %s %c %d", &k, cep, &face, &num);
+            //função soc 
+        }
+        //ci        
+        if(strcmp(comando, "ci") == 0){
+            fscanf(fileQry, "%f %f %f", &x, &y, &r);
+            //função ci 
+        }
         id--;
+        
     }
 
     fclose(fileTxt);

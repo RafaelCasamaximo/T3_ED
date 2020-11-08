@@ -12,8 +12,9 @@
 #include "hidrante.h"
 #include "radioBase.h"
 #include "semaforo.h"
+#include "localCasos.h"
 
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
 
 int insideCirculo(float x, float y, float cx, float cy, float r){
@@ -569,3 +570,44 @@ void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identifica
     insert(listas[CIRCULO], criaCirculo(identificadorFigura - 1, 11, x, y, "blue", "none"));
     insert(listas[CIRCULO], criaCirculo(identificadorFigura - 2, r, x, y, "blue", "none"));
 }
+
+
+void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
+
+    char cepAux[20];
+    float x, y, w, h;
+    LocalCasos localCasosAux = NULL;
+    
+    for(Node aux = getFirst(listas[QUADRA]); aux != NULL; aux = getNext(aux)){
+        strcpy(cepAux, quadraGetCep(getInfo(aux)));
+        if(strcmp(cepAux, cep) == 0){
+            x = quadraGetX(getInfo(aux));
+            y = quadraGetY(getInfo(aux));
+            w = quadraGetWidth(getInfo(aux));
+            h = quadraGetHeight(getInfo(aux));
+        }
+    }
+    if(face == 'L'){
+        y += num;
+        y -= 10;
+    }
+    else if(face == 'S'){
+        x += num;
+        x -= 10;
+    }
+    else if(face == 'O'){
+        x += w;
+        y += num;
+        y -= 10;
+    }
+    else if(face == 'N'){
+        y += h;
+        y -= 20;
+        x += num;
+        x -= 10;
+    }
+    //criaLocalCasos(int n, int num, char* cep, char face, float x, float y);
+    localCasosAux = criaLocalCasos(n, num, cep, face, x, y);
+    insert(listas[LOCALCASOS], localCasosAux);
+}
+

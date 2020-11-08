@@ -6,6 +6,7 @@
 #include "texto.h"
 #include "doublyLinkedList.h"
 
+//T1_ED
 //i?
 int insideCirculo(float x, float y, float cx, float cy, float r);
 int insideRetangulo(float x, float y, float rx, float ry, float rw, float rh);
@@ -25,6 +26,8 @@ void pntAst(DoublyLinkedList* listas, int j, int k, char* cb, char* cp, FILE* fi
 void delf(DoublyLinkedList* listas, int j, FILE* fileTxt);
 void delfAst(DoublyLinkedList* listas, int j, int k, FILE* fileTxt);
 
+
+//T2_ED
 void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt);
 
 void cbq(DoublyLinkedList* listas, float x, float y, float r, char* cb, FILE* fileTxt);
@@ -35,4 +38,7 @@ void car(DoublyLinkedList* listas, float x, float y, float w, float h, int id, F
 
 void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identificadorFigura, FILE* fileTxt);
 
+
+//T3_ED
+void cv(DoublyLinkedList* listas, int n, char* cep, char face, int num);
 #endif

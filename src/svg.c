@@ -12,8 +12,9 @@
 #include "radioBase.h"
 #include "linha.h"
 #include "corPadrao.h"
+#include "localCasos.h"
 
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
 void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
 
@@ -96,6 +97,12 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>",radioBaseGetX(getInfo(aux)), radioBaseGetY(getInfo(aux)), coresPadraoGetPreenchimentoRadioBases(cores), coresPadraoGetBordaRadioBases(cores), coresPadraoGetEspessuraRadioBases(cores));
     }
     
+    //LOCAL CASOS
+    for(Node aux = getFirst(listas[LOCALCASOS]); aux != NULL; aux = getNext(aux)){
+        fprintf(fileSvgQry, "\n<rect x=\"%f\" y=\"%f\" width=\"20\" height=\"20\" style=\"fill:orange\"/>", localCasosGetX(getInfo(aux)), localCasosGetY(getInfo(aux)));    
+        fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" fill=\"white\">%d</text>", localCasosGetX(getInfo(aux))+10, localCasosGetY(getInfo(aux))+15, localCasosGetN(getInfo(aux)));
+    }
+
     //CIRCULO
     for(Node aux = getFirst(listas[CIRCULO]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"%f\" style=\"stroke:%s;fill:%s;stroke-widht:%s\"/>", circuloGetX(getInfo(aux)), circuloGetY(getInfo(aux)), circuloGetRaio(getInfo(aux)), circuloGetCorBorda(getInfo(aux)), circuloGetCorPreenchimento(getInfo(aux)), coresPadraoGetEspessuraCirculos(cores));
@@ -134,7 +141,7 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
             fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" fill=\"balck\" stroke=\"seashell\" stroke-width=\"0.5\" dominant-baseline=\"hanging\">%s</text>", linhaGetX2(getInfo(aux)) + 5, linhaGetY2(getInfo(aux)), linhaGetCep(getInfo(aux)));
         }
     }
-
+    
     fprintf(fileSvgQry, "\n</svg>");
     fclose(fileSvgQry);
 }
