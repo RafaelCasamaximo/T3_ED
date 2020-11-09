@@ -1,14 +1,10 @@
-//Standart Headers
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-//Custom Headers
 #include "leituraGeo.h" 
 #include "corPadrao.h"
 #include "doublyLinkedList.h"
-
-//Custem Headers Formas
 //T1_ED
 #include "circulo.h"
 #include "retangulo.h"
@@ -23,7 +19,10 @@
 #include "postoSaude.h"
 #include "densidadeDemografica.h"
 
+
+
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+
 
 typedef struct nx{
     int i;
@@ -223,5 +222,4 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     }
 
     fclose(fileGeo);
-    
 }

@@ -3,6 +3,8 @@
 #include <string.h>
 #include "corPadrao.h"
 
+
+
 typedef struct corPadrao{
     //cq
     char quadraSw[22], quadraCfill[22], quadraCstrk[22];
@@ -18,7 +20,9 @@ typedef struct corPadrao{
 
 }CorPadraoStruct;
 
-//Separar
+
+//Create
+//Separar 
 CorPadrao criaCorPadrao(char* quadraSw, char* quadraCfill, char* quadraCstrk, char* hidranteSw, char* hidranteCfill, char* hidranteCstrk, char* radioBaseSw, char* radioBaseCfill, char* radioBaseCstrk, char* semaforoSw, char* semaforoCfill, char* semaforoCstrk, char* circuloSw, char* retanguloSw){
     CorPadraoStruct* cor = (CorPadraoStruct*) malloc(sizeof(CorPadraoStruct));
     strcpy(cor->quadraSw, quadraSw);
@@ -42,6 +46,7 @@ CorPadrao criaCorPadrao(char* quadraSw, char* quadraCfill, char* quadraCstrk, ch
     
     return cor;
 }
+
 
 //Setters
 void coresPadraoSetPreenchimentoQuadras(CorPadrao corPadrao, char* cfill){

@@ -4,6 +4,8 @@
 
 #include "linha.h"
 
+
+
 typedef struct linha{
     float x1;
     float y1;
@@ -13,6 +15,7 @@ typedef struct linha{
     int interna;
     char cep[22];
 }LinhaStruct;
+
 
 Linha criaLinha(float x1, float y1, float x2, float y2, int pntInicial, int interna, char* cep){
     LinhaStruct* lin = (LinhaStruct*) malloc(sizeof(LinhaStruct));
@@ -27,6 +30,7 @@ Linha criaLinha(float x1, float y1, float x2, float y2, int pntInicial, int inte
 
     return lin;
 }
+
 
 //Setters
 void linhaSetX1(Linha linha, float x1){
@@ -58,6 +62,7 @@ void linhaSetCep(Linha linha, char* cep){
     LinhaStruct* lin = (LinhaStruct*) linha;
     strcpy(lin->cep, cep);
 }
+
 
 //Getters
 float linhaGetX1(Linha linha){

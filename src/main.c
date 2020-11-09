@@ -11,12 +11,14 @@
 #include "leituraQry.h"
 #include "svg.h"
 #include "texto.h"
-
 //Custom Headers para estruturas e organização
 #include "doublyLinkedList.h"
 
+
+
 //Enumeration para todas as listas utilizadas
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+
 
 int main(int argc, char* argv[]){
     CorPadrao cores = criaCorPadrao("0.5", "coral", "saddlebrown", "0.5", "red", "darkred", "0.5", "deeppink", "mediumvioletred", "0.5", "green", "red", "0.5", "0.5");
@@ -50,7 +52,6 @@ int main(int argc, char* argv[]){
     char* dirTxt = NULL;
 
 
-
     //Realiza a leitura dos parâmetros
     for(int i = 1; argc > i; i++){     
         if(strcmp(argv[i], "-e") == 0){     
@@ -68,14 +69,17 @@ int main(int argc, char* argv[]){
         i++;
     }
 
+
     //Verifica se os parâmetros essenciais estão inseridos
     verificaExecucao(arqGeo, dirSaida);
+
 
     //Cria Listas
     DoublyLinkedList listas[11];
     for(int i = CIRCULO; i <= LOCALCASOS; i++){
         listas[i] = create();
     }
+
 
     //Refatorar trataString para retornar char*
     concatenaCaminhos(dirEntrada, arqGeo, &dirGeo);
@@ -117,6 +121,7 @@ int main(int argc, char* argv[]){
         //Desenha o svg do QRY
         desenhaSvgQry(listas, cores, dirSaidaGeoQry);
     }
+
 
     //Deleta todas as listas
     for(int i = CIRCULO; i <= LOCALCASOS; i++){

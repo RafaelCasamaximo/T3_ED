@@ -4,6 +4,8 @@
 
 #include "utilitario.h"
 
+
+
 float distanciaQuadrada(float x1, float  y1, float  x2, float  y2){
     return ((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2));
 }
@@ -12,6 +14,7 @@ float distanciaEntrePontos(float x1, float  y1, float  x2, float  y2){
     double result = sqrt((double) ((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
     return result;
 }
+
 
 int min(int a, int b){
     return ((a < b) ? a : b);
@@ -29,6 +32,7 @@ float minF(float a, float b){
 float maxF(float a, float b){
     return ((a > b) ? a : b);
 }
+
 
 float minV(float v[], int tamanho){
     float min = v[0];

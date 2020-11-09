@@ -18,6 +18,8 @@
 #include "sorting.h"
 #include "densidadeDemografica.h"
 
+
+
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
 
@@ -136,7 +138,6 @@ int overlayRetanguloRetangulo(Retangulo r1, Retangulo r2){
     
     return 0;
 }
-
 
 int overlay(DoublyLinkedList* listas, int j, int k, float* x, float* y, float* w, float* h, FILE* fileTxt){
     float vX[4] = {0, 0, 0, 0};
@@ -309,6 +310,8 @@ void delfAst(DoublyLinkedList* listas, int j, int k, FILE* fileTxt){
     }
 }
 
+
+
 void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt){
     for(int i = QUADRA; i <= RADIOBASE; i++){
         for(Node aux = getFirst(listas[i]); aux != NULL; aux = getNext(aux)){
@@ -348,6 +351,7 @@ void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt){
     }
 }
 
+
 void cbq(DoublyLinkedList* listas, float x, float y, float r, char* cb, FILE* fileTxt){
     float xQuadra = 0, yQuadra = 0, wQuadra = 0, hQuadra = 0;
     
@@ -374,6 +378,7 @@ void cbq(DoublyLinkedList* listas, float x, float y, float r, char* cb, FILE* fi
         }
     }
 }
+
 
 void crd(DoublyLinkedList* listas, char* id, FILE* fileTxt){
     char idAux[20];
@@ -576,8 +581,9 @@ void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identifica
 }
 
 
-void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
 
+//T3_ED
+void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
     char cepAux[20];
     float x, y, w, h;
     LocalCasos localCasosAux = NULL;
@@ -616,8 +622,8 @@ void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
     insert(listas[LOCALCASOS], localCasosAux);
 }
 
-void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* fileTxt){
 
+void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* fileTxt){
     float xLC, yLC;
     int qtdPS = 0;
     Linha linhaAux = NULL;
@@ -668,6 +674,7 @@ void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* f
     }
 
 }
+
 
 int circInsideDensidadeDemografica(DensidadeDemografica dd, float x, float y, float r){
     if((x - r > densidadeDemograficaGetX(dd) && x - r < densidadeDemograficaGetX(dd) + densidadeDemograficaGetWidth(dd)) ||(x + r > densidadeDemograficaGetX(dd) && x + r < densidadeDemograficaGetX(dd) + densidadeDemograficaGetWidth(dd))){
@@ -763,6 +770,4 @@ void ci(DoublyLinkedList* listas, float x, float y, float r, FILE* fileTxt){
         }
 
     }
-
-
 }

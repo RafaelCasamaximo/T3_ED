@@ -4,6 +4,8 @@
 
 #include "doublyLinkedList.h"
 
+
+
 typedef struct node {
     struct node* ant;
     Info info;
@@ -24,6 +26,7 @@ DoublyLinkedList create(){
     return list;
 }
 
+
 void insert(DoublyLinkedList lista, Info info){ //Pra inserir eu preciso saber qual é a lista e a informação a ser guardada
     ListaStruct* list = (ListaStruct*)lista;
     NodeStruct* node = (NodeStruct*)malloc(sizeof(NodeStruct));
@@ -43,30 +46,36 @@ void insert(DoublyLinkedList lista, Info info){ //Pra inserir eu preciso saber q
     }
 }
 
+
 Info getInfo(Node node){
     NodeStruct* nod = (NodeStruct*)node;
     return nod->info;
 }
+
 
 Node getFirst(DoublyLinkedList lista){
     ListaStruct* list = (ListaStruct*)lista;
     return list->primeiro;
 }
 
+
 Node getLast(DoublyLinkedList lista){
     ListaStruct* list = (ListaStruct*)lista;
     return list->ultimo;
 }
+
 
 Node getPrevious(Node node){
     NodeStruct* nod = (NodeStruct*)node;
     return nod->ant;
 }
 
+
 Node getNext(Node node){
     NodeStruct* nod = (NodeStruct*)node;
     return nod->prox;
 }
+
 
 void insertBefore(DoublyLinkedList lista, Node node, Info info){
     NodeStruct* nod = (NodeStruct*)node;
@@ -85,6 +94,7 @@ void insertBefore(DoublyLinkedList lista, Node node, Info info){
 
 }
 
+
 void insertAfter(DoublyLinkedList lista, Node node, Info info){
     NodeStruct* nod = (NodeStruct*)node;
     ListaStruct* list = (ListaStruct*)lista;
@@ -100,6 +110,7 @@ void insertAfter(DoublyLinkedList lista, Node node, Info info){
         list->ultimo = newNode;
     }
 }
+
 
 void removeNode(DoublyLinkedList lista, Node node){
     NodeStruct* nod = (NodeStruct*)node;
@@ -130,6 +141,7 @@ void removeNode(DoublyLinkedList lista, Node node){
     free(nod->info);
     free(nod);
 }
+
 
 void removeList(DoublyLinkedList lista){
     ListaStruct* list = (ListaStruct*) lista;

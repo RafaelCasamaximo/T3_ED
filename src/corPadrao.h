@@ -53,7 +53,4 @@ char* coresPadraoGetEspessuraSemaforos(CorPadrao corPadrao);
 char* coresPadraoGetEspessuraCirculos(CorPadrao cores);
 char* coresPadraoGetEspessuraRetangulos(CorPadrao cores);
 
-
-
-
 #endif

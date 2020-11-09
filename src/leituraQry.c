@@ -9,6 +9,8 @@
 #include "corPadrao.h"
 #include "qry.h"
 
+
+
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
 
@@ -49,7 +51,6 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         if(feof(fileQry)){
             break;
         }
-
         //T1_ED
         //o?
         if(strcmp(comando, "o?") == 0){
@@ -78,7 +79,6 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
             if(interno == 1 || interno == 0 || interno == 2){
                 insert(listas[LINHA], linhaAux);
             }
-            
         }
         //pnt
         if(strcmp(comando, "pnt") == 0){
@@ -157,7 +157,6 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         id--;
         
     }
-
     fclose(fileTxt);
     fclose(fileQry);
 }

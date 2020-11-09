@@ -3,7 +3,6 @@
 
 typedef void* RadioBase;
 
-
 // Função responsável para criar RadioBase. Retorna um pointer instanciado.
 RadioBase criaRadioBase(char* id, float x, float y);
 

@@ -4,6 +4,7 @@
 #include "infoSoc.h"
 
 
+
 typedef struct{
     float xPS, yPS, distancia;
 }InfoSocStruct;
@@ -17,6 +18,7 @@ InfoSoc criaInfoSoc(float xPS, float yPS, float distancia){
 
     return is;
 }
+
 
 //Getters
 float infoSocGetX(InfoSoc infoSoc){
@@ -34,6 +36,7 @@ float infoSocGetDistancia(InfoSoc infoSoc){
     
     return is->distancia;
 }
+
 
 //Setters
 void infoSocSetX(InfoSoc infoSoc, float x){

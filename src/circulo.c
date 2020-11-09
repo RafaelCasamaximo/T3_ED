@@ -4,6 +4,8 @@
 
 #include "circulo.h"
 
+
+
 typedef struct{
     int id;
     float x, y, r;

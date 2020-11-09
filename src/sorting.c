@@ -8,6 +8,7 @@
 #include "utilitario.h"
 
 
+
 void shellSorting(InfoSoc* vet, int n){
     int gap = n / 2;
     while(gap > 0){
@@ -23,6 +24,7 @@ void shellSorting(InfoSoc* vet, int n){
         gap = gap / 2;
     }
 }
+
 
 int orientacao(LocalCasos a, LocalCasos b, LocalCasos c){
     float area = (localCasosGetX(b) - localCasosGetX(a)) * (localCasosGetY(c) - localCasosGetY(a)) - (localCasosGetY(b) - localCasosGetY(a)) * (localCasosGetX(c) - localCasosGetX(a));
@@ -126,5 +128,5 @@ float obterArea(DoublyLinkedList l){
     i = getInfo(node);
     j = getInfo(getFirst(l));
     a += localCasosGetX(i) * localCasosGetY(j) - localCasosGetY(i) * localCasosGetX(j);
-    return a/2;
+    return a / 2;
 }

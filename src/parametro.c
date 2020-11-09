@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 //Refatorar error checking e i++
 char *buscaParametros(char* argv[], int i){
         char* parametro = NULL;

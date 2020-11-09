@@ -3,7 +3,6 @@
 
 typedef void* Quadra;
 
-
 //Função responsável para criar Quuadra. Retorna um pointer instanciado.
 Quadra criaQuadra(char* cep, float x, float y, float w, float h, char* cb, char* cp, int arredondado);
 

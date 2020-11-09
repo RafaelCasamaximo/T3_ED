@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "semaforo.h"
+
+
 
 typedef struct semaforo{ 
     char id[20];
     float x;
     float y;
 }SemaforoStruct;
-//typedef tipo novoTipo
+
 
 Semaforo criaSemaforo(char* id, float x, float y){
     SemaforoStruct* sem = (SemaforoStruct*) malloc(sizeof(SemaforoStruct));
@@ -19,6 +22,7 @@ Semaforo criaSemaforo(char* id, float x, float y){
 
     return sem;
 }
+
 
 //Setters
 void semaforoSetId(Semaforo semaforo, char* id){
@@ -35,6 +39,7 @@ void semaforoSetY(Semaforo semaforo, float y){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
     sem->y = y;
 }
+
 
 //Getters
 char* semaforoGetId(Semaforo semaforo){

@@ -3,7 +3,6 @@
 
 typedef void* Hidrante;
 
-
 //Função responsável para criar Hidrante. Retorna um pointer instanciado.
 Hidrante criaHidrante(char* id, float x, float y);
 
@@ -23,6 +22,5 @@ POS: Atributo especificado
 char* hidranteGetId(Hidrante hidrante);
 float hidranteGetX(Hidrante hidrante);
 float hidranteGetY(Hidrante hidrante);
-
 
 #endif

@@ -3,7 +3,6 @@
 
 typedef void* Circulo;
 
-
 //Create
 //Função responsável para criar Circulo. Retorna um pointer instanciado.
 Circulo criaCirculo(int id, float x, float y, float r, char* cb, char* cp);

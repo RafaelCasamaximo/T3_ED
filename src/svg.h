@@ -1,7 +1,6 @@
 #ifndef __SVG_H
 #define __SVG_H
 
-
 #include "doublyLinkedList.h"
 #include "corPadrao.h"
 

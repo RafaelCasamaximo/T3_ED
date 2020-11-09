@@ -4,12 +4,16 @@
 
 #include "localCasos.h"
 
+
+
 typedef struct{
     int n, num;
     char cep[20], face;
     float x, y;
 }LocalCasosStruct;
 
+
+//Create
 LocalCasos criaLocalCasos(int n, int num, char* cep, char face, float x, float y){
     LocalCasosStruct* lc = (LocalCasosStruct*) malloc(sizeof(LocalCasosStruct));
 
@@ -23,6 +27,7 @@ LocalCasos criaLocalCasos(int n, int num, char* cep, char face, float x, float y
     return lc;
 }
 
+//Getters
 int localCasosGetN(LocalCasos localCasos){
     LocalCasosStruct* lc = (LocalCasosStruct*)localCasos;
 
@@ -57,6 +62,7 @@ float localCasosGetY(LocalCasos localCasos){
 }
 
 
+//Setters
 void localCasosSetN(LocalCasos localCasos, int n){
     LocalCasosStruct* lc = (LocalCasosStruct*)localCasos;
 

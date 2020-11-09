@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "quadra.h"
+
+
 
 typedef struct quadra{
     char cep[20];
@@ -13,6 +16,7 @@ typedef struct quadra{
     char cp[22];
     int arredondado;
 }QuadraStruct;
+
 
 Quadra criaQuadra(char* cep, float x, float y, float w, float h, char* cb, char* cp, int arredondado){
     QuadraStruct* quad = (QuadraStruct*) malloc(sizeof(QuadraStruct));
@@ -28,6 +32,7 @@ Quadra criaQuadra(char* cep, float x, float y, float w, float h, char* cb, char*
 
     return quad; 
 }
+
 
 //Setters
 void quadraSetCep(Quadra quadra, char* cep){
@@ -62,6 +67,7 @@ void quadraSetArredondado(Quadra quadra, int arredondado){
     QuadraStruct* quad = (QuadraStruct*) quadra;
     quad->arredondado = arredondado;
 }
+
 
 //Getters
 char* quadraGetCep(Quadra quadra){

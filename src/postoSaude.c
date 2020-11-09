@@ -3,9 +3,12 @@
 
 #include "postoSaude.h"
 
+
+
 typedef struct{
     float x, y;
 }PostoSaudeStruct;
+
 
 //Create
 PostoSaude criaPostoSaude(float x, float y){
@@ -16,6 +19,7 @@ PostoSaude criaPostoSaude(float x, float y){
 
     return ps;
 }
+
 
 //Setters
 void postoSaudeSetX(PostoSaude posto, float x){
@@ -29,6 +33,7 @@ void postoSaudeSetY(PostoSaude posto, float y){
 
     ps->y = y;
 }
+
 
 //Getters
 float postoSaudeGetX(PostoSaude posto){

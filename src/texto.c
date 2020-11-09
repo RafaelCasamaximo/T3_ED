@@ -4,6 +4,8 @@
 
 #include "texto.h"
 
+
+
 typedef struct{
     int id, size;
     float x, y;
@@ -27,6 +29,7 @@ Texto criaTexto(int id, int size, float x, float y, char* txt, char* cb, char* c
 
     return tex;
 }
+
 
 //Getters
 int textoGetId(Texto texto){

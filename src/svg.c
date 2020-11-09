@@ -15,10 +15,12 @@
 #include "localCasos.h"
 #include "postoSaude.h"
 
+
+
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
-void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
 
+void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
     FILE *fileSvgGeo = NULL;
     fileSvgGeo = fopen(dirSaida, "w");
     if(!fileSvgGeo){
@@ -42,11 +44,9 @@ void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
     for(Node aux = getFirst(listas[RADIOBASE]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgGeo, "\n\t\t<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>",radioBaseGetX(getInfo(aux)), radioBaseGetY(getInfo(aux)), coresPadraoGetPreenchimentoRadioBases(cores), coresPadraoGetBordaRadioBases(cores), coresPadraoGetEspessuraRadioBases(cores));
     }
-    //RADIOBASE
     for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgGeo, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:black;stroke:white;stroke-widht:2\"/>",postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux)));
     }
-
 
     //Desenho GEO do T1
     for(Node aux = getFirst(listas[CIRCULO]); aux != NULL; aux = getNext(aux)){
@@ -109,12 +109,12 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
         fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" fill=\"white\">%d</text>", localCasosGetX(getInfo(aux))+10, localCasosGetY(getInfo(aux))+15, localCasosGetN(getInfo(aux)));
     }
 
-    //RADIOBASE
+    //POSTO SAUDE
     for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:black;stroke:white;stroke-widht:2\"/>",postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux)));
     }
 
-    //CIRCULOe
+    //CIRCULO
     for(Node aux = getFirst(listas[CIRCULO]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"%f\" style=\"stroke:%s;fill:%s;stroke-widht:%s\"/>", circuloGetX(getInfo(aux)), circuloGetY(getInfo(aux)), circuloGetRaio(getInfo(aux)), circuloGetCorBorda(getInfo(aux)), circuloGetCorPreenchimento(getInfo(aux)), coresPadraoGetEspessuraCirculos(cores));
     }
@@ -159,4 +159,3 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
     fprintf(fileSvgQry, "\n</svg>");
     fclose(fileSvgQry);
 }
-

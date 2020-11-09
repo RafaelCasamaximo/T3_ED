@@ -3,6 +3,8 @@
 
 #include "densidadeDemografica.h"
 
+
+
 typedef struct{
     float x, y, w, h, d;
 }DensidadeDemograficaStruct;
