@@ -31,44 +31,6 @@ Texto criaTexto(int id, int size, float x, float y, char* txt, char* cb, char* c
 }
 
 
-//Getters
-int textoGetId(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->id;
-}
-
-float textoGetX(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->x;
-}
-
-float textoGetY(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->y;
-}
-
-char* textoGetTexto(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->txt;   
-}
-
-char* textoGetCorBorda(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->cb;
-}
-
-char* textoGetCorPreenchimento(Texto texto){
-    TextoStruct* tex = (TextoStruct*)texto;
-
-    return tex->cp;
-}
-
-
 //Setters
 void textoSetId(Texto texto, int id){
     TextoStruct* tex = (TextoStruct*)texto;
@@ -107,6 +69,45 @@ void textoSetCorPreenchimento(Texto texto, char* cp){
 
     strcpy(tex->cp, cp);
 }
+
+
+//Getters
+int textoGetId(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->id;
+}
+
+float textoGetX(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->x;
+}
+
+float textoGetY(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->y;
+}
+
+char* textoGetTexto(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->txt;   
+}
+
+char* textoGetCorBorda(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->cb;
+}
+
+char* textoGetCorPreenchimento(Texto texto){
+    TextoStruct* tex = (TextoStruct*)texto;
+
+    return tex->cp;
+}
+
 
 void textoDeletaTxt(Texto texto){
     TextoStruct* tex = (TextoStruct*)texto;

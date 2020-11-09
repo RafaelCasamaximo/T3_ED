@@ -30,21 +30,25 @@ void densidadeDemograficaSetX(DensidadeDemografica densidade, float x){
 
     dd->x = x;
 }
+
 void densidadeDemograficaSetY(DensidadeDemografica densidade, float y){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
     dd->y = y;
 }
+
 void densidadeDemograficaSetWidth(DensidadeDemografica densidade, float w){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
     dd->w = w;
 }
+
 void densidadeDemograficaSetHeight(DensidadeDemografica densidade, float h){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
     dd->h = h;
 }
+
 void densidadeDemograficaSetDensidadeDemografica(DensidadeDemografica densidade, float d){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
@@ -58,21 +62,25 @@ float densidadeDemograficaGetX(DensidadeDemografica densidade){
 
     return dd->x;
 }
+
 float densidadeDemograficaGetY(DensidadeDemografica densidade){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
     return dd->y;
 }
+
 float densidadeDemograficaGetWidth(DensidadeDemografica densidade){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
 
     return dd->w;
 }
+
 float densidadeDemograficaGetHeight(DensidadeDemografica densidade){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
     
     return dd->h;
 }
+
 float densidadeDemograficaGetDensidadeDemografica(DensidadeDemografica densidade){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
     

@@ -20,37 +20,41 @@ InfoSoc criaInfoSoc(float xPS, float yPS, float distancia){
 }
 
 
-//Getters
-float infoSocGetX(InfoSoc infoSoc){
-    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
-
-    return is->xPS;
-}
-float infoSocGetY(InfoSoc infoSoc){
-    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
-    
-    return is->yPS;
-}
-float infoSocGetDistancia(InfoSoc infoSoc){
-    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
-    
-    return is->distancia;
-}
-
-
 //Setters
 void infoSocSetX(InfoSoc infoSoc, float x){
     InfoSocStruct* is = (InfoSocStruct*) infoSoc;
 
     is->xPS = x;
 }
+
 void infoSocSetY(InfoSoc infoSoc, float y){
     InfoSocStruct* is = (InfoSocStruct*) infoSoc;
     
     is->yPS = y;
 }
+
 void infoSocSetDistancia(InfoSoc infoSoc, float distancia){
     InfoSocStruct* is = (InfoSocStruct*) infoSoc;
     
     is->distancia = distancia;
+}
+
+
+//Getters
+float infoSocGetX(InfoSoc infoSoc){
+    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
+
+    return is->xPS;
+}
+
+float infoSocGetY(InfoSoc infoSoc){
+    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
+    
+    return is->yPS;
+}
+
+float infoSocGetDistancia(InfoSoc infoSoc){
+    InfoSocStruct* is = (InfoSocStruct*) infoSoc;
+    
+    return is->distancia;
 }

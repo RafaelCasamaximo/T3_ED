@@ -32,11 +32,13 @@ void semaforoSetId(Semaforo semaforo, char* id){
 
 void semaforoSetX(Semaforo semaforo, float x){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
+    
     sem->x = x;
 }
 
 void semaforoSetY(Semaforo semaforo, float y){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
+
     sem->y = y;
 }
 
@@ -44,15 +46,18 @@ void semaforoSetY(Semaforo semaforo, float y){
 //Getters
 char* semaforoGetId(Semaforo semaforo){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
+
     return sem->id;
 }
 
 float semaforoGetX(Semaforo semaforo){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
+
     return sem->x;
 }
 
 float semaforoGetY(Semaforo semaforo){
     SemaforoStruct* sem = (SemaforoStruct*) semaforo;
+
     return sem->y;
 }

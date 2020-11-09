@@ -7,6 +7,19 @@ typedef void* Retangulo;
 Retangulo criaRetangulo(int id, int tracejado, float x, float y, float w, float h, char* cb, char* cp);
 
 /*
+Setters: Define o atributo do título da função
+PRE: Objeto e atributo
+*/
+void retanguloSetId(Retangulo retangulo, int id);
+void retanguloSetTracejado(Retangulo retangulo, int tracejado);
+void retanguloSetX(Retangulo retangulo, float x);
+void retanguloSetY(Retangulo retangulo, float y);
+void retanguloSetWidth(Retangulo retangulo, float w);
+void retanguloSetHeight(Retangulo retangulo, float h);
+void retanguloSetCorBorda(Retangulo retangulo, char* cb);
+void retanguloSetCorPreenchimento(Retangulo retangulo, char* cp);
+
+/*
 Getters: Retorna o atributo do título da função
 PRE: Objeto
 POS: Atributo especificado
@@ -19,18 +32,5 @@ float retanguloGetWidth(Retangulo retangulo);
 float retanguloGetHeight(Retangulo retangulo);
 char* retanguloGetCorBorda(Retangulo retangulo);
 char* retanguloGetCorPreenchimento(Retangulo retangulo);
-
-/*
-Setters: Define o atributo do título da função
-PRE: Objeto e atributo
-*/
-void retanguloSetId(Retangulo retangulo, int id);
-void retanguloSetTracejado(Retangulo retangulo, int tracejado);
-void retanguloSetX(Retangulo retangulo, float x);
-void retanguloSetY(Retangulo retangulo, float y);
-void retanguloSetWidth(Retangulo retangulo, float w);
-void retanguloSetHeight(Retangulo retangulo, float h);
-void retanguloSetCorBorda(Retangulo retangulo, char* cb);
-void retanguloSetCorPreenchimento(Retangulo retangulo, char* cp);
 
 #endif

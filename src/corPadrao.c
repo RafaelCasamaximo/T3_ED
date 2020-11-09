@@ -5,6 +5,7 @@
 
 
 
+
 typedef struct corPadrao{
     //cq
     char quadraSw[22], quadraCfill[22], quadraCstrk[22];

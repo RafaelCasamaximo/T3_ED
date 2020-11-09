@@ -68,13 +68,12 @@ char *buscaParametros(char* argv[], int i){
             printf("\nComando siguel inexistente!");
             exit(1);           
         }
-
     return parametro;
 }
 
 
 void verificaExecucao(char* arqGeo, char* dirSaida){
-    if (arqGeo == NULL || dirSaida == NULL){
+    if(arqGeo == NULL || dirSaida == NULL){
         printf("\n!Erro! Nao existe -f ou -o. Parâmetros essenciais!");
         exit(1);
     }

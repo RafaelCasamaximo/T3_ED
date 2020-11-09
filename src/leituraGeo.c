@@ -74,12 +74,13 @@ void readGeo(DoublyLinkedList* listas, char* dirGeo, CorPadrao cores){
     PostoSaude postoSaudeAux = NULL;
     DensidadeDemografica densidadeDemograficaAux = NULL;
 
+
     while(1){
         fscanf(fileGeo, "%s", comando);
         if(feof(fileGeo)){
             break;
         }
-
+        
         //T1_ED
         //Comando: nx
         //nx i(circulos, retangulos ?e textos?) quadras hidrantes semaforos radiobases 

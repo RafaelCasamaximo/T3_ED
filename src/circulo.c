@@ -28,44 +28,6 @@ Circulo criaCirculo(int id, float x, float y, float r, char* cb, char* cp){
 }
 
 
-//Getters
-int circuloGetId(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->id;
-}
-
-float circuloGetX(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->x;
-}
-
-float circuloGetY(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->y;
-}
-
-float circuloGetRaio(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->r;
-}
-
-char* circuloGetCorBorda(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->cb;
-}
-
-char* circuloGetCorPreenchimento(Circulo circulo){
-    CirculoStruct* circ = (CirculoStruct*)circulo;
-
-    return circ->cp;
-}
-
-
 //Setters
 void circuloSetId(Circulo circulo, int id){
     CirculoStruct* circ = (CirculoStruct*)circulo;
@@ -103,3 +65,40 @@ void circuloSetCorPreenchimento(Circulo circulo, char* cp){
     strcpy(circ->cp, cp);
 }
 
+
+//Getters
+int circuloGetId(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->id;
+}
+
+float circuloGetX(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->x;
+}
+
+float circuloGetY(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->y;
+}
+
+float circuloGetRaio(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->r;
+}
+
+char* circuloGetCorBorda(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->cb;
+}
+
+char* circuloGetCorPreenchimento(Circulo circulo){
+    CirculoStruct* circ = (CirculoStruct*)circulo;
+
+    return circ->cp;
+}

@@ -47,10 +47,10 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
 
     while(1){
         fscanf(fileQry, "%s", comando);
-
         if(feof(fileQry)){
             break;
         }
+        
         //T1_ED
         //o?
         if(strcmp(comando, "o?") == 0){
@@ -155,8 +155,8 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
             //função ci 
         }
         id--;
-        
     }
+
     fclose(fileTxt);
     fclose(fileQry);
 }

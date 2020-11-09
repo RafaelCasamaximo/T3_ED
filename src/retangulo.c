@@ -30,56 +30,6 @@ Retangulo criaRetangulo(int id, int tracejado, float x, float y, float w, float 
 }
 
 
-//Getters
-int retanguloGetId(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->id;
-}
-
-int retanguloGetTracejado(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->tracejado;
-}
-
-float retanguloGetX(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->x;
-}
-
-float retanguloGetY(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->y;
-}
-
-float retanguloGetWidth(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->w;
-}
-
-float retanguloGetHeight(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->h;
-}
-
-char* retanguloGetCorBorda(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->cb;
-}
-
-char* retanguloGetCorPreenchimento(Retangulo retangulo){
-    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
-
-    return ret->cp;
-}
-
-
 //Setters
 void retanguloSetId(Retangulo retangulo, int id){
     RetanguloStruct* ret = (RetanguloStruct*)retangulo;
@@ -127,4 +77,54 @@ void retanguloSetCorPreenchimento(Retangulo retangulo, char* cp){
     RetanguloStruct* ret = (RetanguloStruct*)retangulo;
 
     strcpy(ret->cp, cp);
+}
+
+
+//Getters
+int retanguloGetId(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->id;
+}
+
+int retanguloGetTracejado(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->tracejado;
+}
+
+float retanguloGetX(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->x;
+}
+
+float retanguloGetY(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->y;
+}
+
+float retanguloGetWidth(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->w;
+}
+
+float retanguloGetHeight(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->h;
+}
+
+char* retanguloGetCorBorda(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->cb;
+}
+
+char* retanguloGetCorPreenchimento(Retangulo retangulo){
+    RetanguloStruct* ret = (RetanguloStruct*)retangulo;
+
+    return ret->cp;
 }
