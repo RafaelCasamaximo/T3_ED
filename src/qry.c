@@ -600,6 +600,7 @@ void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
     }
     else if(face == 'O'){
         x += w;
+        x -= 20;
         y += num;
         y -= 10;
     }
@@ -619,6 +620,7 @@ void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* f
     float xLC, yLC;
     int qtdPS = 0;
     Linha linhaAux = NULL;
+    Retangulo retanguloAux = NULL;
 
     for(Node aux = getFirst(listas[LOCALCASOS]); aux != NULL; aux = getNext(aux)){
         if(strcmp(cep, localCasosGetCep(getInfo(aux))) == 0 && face == localCasosGetFace(getInfo(aux)) && num == localCasosGetNum(getInfo(aux))){
@@ -631,33 +633,37 @@ void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* f
         qtdPS++;    
     }
 
-    printf("XLC: %f YLC: %f NUMERO DE PS: %d", xLC, yLC, qtdPS);
-    //-------------------------------------------------------------------------
+    if(qtdPS > 0){
+        //-------------------------------------------------------------------------
 
-    InfoSoc* info = malloc(qtdPS * sizeof(InfoSoc));
-    for(int i = 0; i < qtdPS; i++){
-        info[i] = criaInfoSoc(10, 10, 10);
-    }
-    //-------------------------------------------------------------------------
-    int i = 0;
-    for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
-        infoSocSetX(info[i], postoSaudeGetX(getInfo(aux)));
-        infoSocSetY(info[i], postoSaudeGetY(getInfo(aux)));
-        infoSocSetDistancia(info[i], distanciaEntrePontos(xLC, yLC, postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux))));
-        i++;
-    }
+        InfoSoc* info = malloc(qtdPS * sizeof(InfoSoc));
+        for(int i = 0; i < qtdPS; i++){
+            info[i] = criaInfoSoc(10, 10, 10);
+        }
+        //-------------------------------------------------------------------------
+        int i = 0;
+        for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+            infoSocSetX(info[i], postoSaudeGetX(getInfo(aux)));
+            infoSocSetY(info[i], postoSaudeGetY(getInfo(aux)));
+            infoSocSetDistancia(info[i], distanciaEntrePontos(xLC, yLC, postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux))));
+            i++;
+        }
 
-    shellSorting(info, qtdPS);
-    
-    for(i = 0; i < k; i++){ 
-        fprintf(fileTxt, "\nPS %d - X: %f Y: %f", i+1, infoSocGetX(info[i]), infoSocGetY(info[i]));
-        linhaAux = criaLinha(xLC, yLC, infoSocGetX(info[i]), infoSocGetY(info[i]), 0, 0, "");
-        insert(listas[LINHA], linhaAux);
-    }
+        shellSorting(info, qtdPS);
+        
+        for(i = 0; i < k && i < qtdPS; i++){ 
+            fprintf(fileTxt, "\nPS %d - X: %f Y: %f", i+1, infoSocGetX(info[i]), infoSocGetY(info[i]));
+            linhaAux = criaLinha(xLC + 10, yLC + 10, infoSocGetX(info[i]), infoSocGetY(info[i]), -1, 0, "");
+            insert(listas[LINHA], linhaAux);
 
-    for(int i = 0; i < qtdPS; i++){
-        free(info[i]);
+            retanguloAux = criaRetangulo(-1, 0, xLC+5, yLC+5, 10, 10, "white", "blue");
+            insert(listas[RETANGULO], retanguloAux);
+        }
+
+        for(int i = 0; i < qtdPS; i++){
+            free(info[i]);
+        }
+        free(info);
     }
-    free(info);
 
 }

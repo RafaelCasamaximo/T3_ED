@@ -13,6 +13,7 @@
 #include "linha.h"
 #include "corPadrao.h"
 #include "localCasos.h"
+#include "postoSaude.h"
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
@@ -41,6 +42,11 @@ void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
     for(Node aux = getFirst(listas[RADIOBASE]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgGeo, "\n\t\t<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>",radioBaseGetX(getInfo(aux)), radioBaseGetY(getInfo(aux)), coresPadraoGetPreenchimentoRadioBases(cores), coresPadraoGetBordaRadioBases(cores), coresPadraoGetEspessuraRadioBases(cores));
     }
+    //RADIOBASE
+    for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+        fprintf(fileSvgGeo, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:black;stroke:white;stroke-widht:2\"/>",postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux)));
+    }
+
 
     //Desenho GEO do T1
     for(Node aux = getFirst(listas[CIRCULO]); aux != NULL; aux = getNext(aux)){
@@ -77,7 +83,7 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
             fprintf(fileSvgQry, "\n<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"stroke:%s;fill:%s;stroke-widht:%s\" rx=\"10\" ry=\"10\"/>", quadraGetX(getInfo(aux)), quadraGetY(getInfo(aux)), quadraGetWidth(getInfo(aux)), quadraGetHeight(getInfo(aux)), quadraGetCorBorda(getInfo(aux)), quadraGetCorPreenchimento(getInfo(aux)), coresPadraoGetEspessuraQuadras(cores));
         }
         else{
-            fprintf(fileSvgQry, "\n<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>", quadraGetX(getInfo(aux)), quadraGetY(getInfo(aux)), quadraGetWidth(getInfo(aux)), quadraGetHeight(getInfo(aux)), quadraGetCorBorda(getInfo(aux)), quadraGetCorPreenchimento(getInfo(aux)), coresPadraoGetEspessuraQuadras(cores));
+            fprintf(fileSvgQry, "\n<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>", quadraGetX(getInfo(aux)), quadraGetY(getInfo(aux)), quadraGetWidth(getInfo(aux)), quadraGetHeight(getInfo(aux)), quadraGetCorPreenchimento(getInfo(aux)), quadraGetCorBorda(getInfo(aux)), coresPadraoGetEspessuraQuadras(cores));
         }
         fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" fill=\"black\" stroke=\"seashell\" stroke-width=\"0.5\" dominant-baseline=\"middle\" text-anchor=\"middle\">%s</text>", quadraGetX(getInfo(aux)) + (quadraGetWidth(getInfo(aux)) / 2), quadraGetY(getInfo(aux)) + (quadraGetHeight(getInfo(aux)) / 2), quadraGetCep(getInfo(aux)));
     }  
@@ -101,6 +107,11 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
     for(Node aux = getFirst(listas[LOCALCASOS]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgQry, "\n<rect x=\"%f\" y=\"%f\" width=\"20\" height=\"20\" style=\"fill:orange\"/>", localCasosGetX(getInfo(aux)), localCasosGetY(getInfo(aux)));    
         fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" fill=\"white\">%d</text>", localCasosGetX(getInfo(aux))+10, localCasosGetY(getInfo(aux))+15, localCasosGetN(getInfo(aux)));
+    }
+
+    //RADIOBASE
+    for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+        fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:black;stroke:white;stroke-widht:2\"/>",postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux)));
     }
 
     //CIRCULO
@@ -139,6 +150,9 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
         else if(linhaGetPntInicial(getInfo(aux)) == 0){
             fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
             fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" fill=\"balck\" stroke=\"seashell\" stroke-width=\"0.5\" dominant-baseline=\"hanging\">%s</text>", linhaGetX2(getInfo(aux)) + 5, linhaGetY2(getInfo(aux)), linhaGetCep(getInfo(aux)));
+        }
+        else if(linhaGetPntInicial(getInfo(aux)) == -1){
+            fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\" stroke-dasharray=\"4\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
         }
     }
     

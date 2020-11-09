@@ -3,19 +3,13 @@
 
 typedef void* Quadra;
 
-/*
-Cria uma quadra
-Pre: Atributos da quadra (cep, x, y, w, h, cor da borda, cor de preenchimento e [OPCIONAL - utilizado apenas na consulta dq do 
-arquivo QRY: 1 - as quadras removidas terão cantos arredondados, 0 - não terão cantos arrendodados])
-Pós: Retorna o endereço da quadra
-*/ 
+
+//Função responsável para criar Quuadra. Retorna um pointer instanciado.
 Quadra criaQuadra(char* cep, float x, float y, float w, float h, char* cb, char* cp, int arredondado);
 
-//Setters
 /*
-Define algum atributo da quadra
-Pre: Atributo da quadra referente que deseja-se definir
-Pós: Nenhum
+Setters: Define o atributo do título da função
+PRE: Objeto e atributo
 */
 void quadraSetCep(Quadra quadra, char* cep);
 void quadraSetX(Quadra quadra, float x);
@@ -26,11 +20,10 @@ void quadraSetCorBorda(Quadra quadra, char* cb);
 void quadraSetCorPreenchimento(Quadra quadra, char* cp);
 void quadraSetArredondado(Quadra quadra, int arredondado);
 
-//Getters
 /*
-Obtém algum atributo da quadra
-Pre:Quadra
-Pós: Retorna o atributo em questão
+Getters: Retorna o atributo do título da função
+PRE: Objeto
+POS: Atributo especificado
 */
 char* quadraGetCep(Quadra quadra);
 float quadraGetX(Quadra quadra);

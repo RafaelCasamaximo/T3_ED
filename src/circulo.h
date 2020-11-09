@@ -5,9 +5,14 @@ typedef void* Circulo;
 
 
 //Create
+//Função responsável para criar Circulo. Retorna um pointer instanciado.
 Circulo criaCirculo(int id, float x, float y, float r, char* cb, char* cp);
 
-//Getters
+/*
+Getters: Retorna o atributo do título da função
+PRE: Objeto
+POS: Atributo especificado
+*/
 int circuloGetId(Circulo circulo);
 float circuloGetX(Circulo circulo);
 float circuloGetY(Circulo circulo);
@@ -15,7 +20,10 @@ float circuloGetRaio(Circulo circulo);
 char* circuloGetCorBorda(Circulo circulo);
 char* circuloGetCorPreenchimento(Circulo circulo);
 
-//Setters
+/*
+Setters: Define o atributo do título da função
+PRE: Objeto e atributo
+*/
 void circuloSetId(Circulo circulo, int id);
 void circuloSetX(Circulo circulo, float x);
 void circuloSetY(Circulo circulo, float y);

@@ -3,9 +3,13 @@
 
 typedef void* CorPadrao;
 
+//Função responsável para criar CoresPadrao. Retorna um pointer instanciado.
 CorPadrao criaCorPadrao(char* quadraSw, char* quadraCfill, char* quadraCstrk, char* hidranteSw, char* hidranteCfill, char* hidranteCstrk, char* radioBaseSw, char* radioBaseCfill, char* radioBaseCstrk, char* semaforoSw, char* semaforoCfill, char* semaforoCstrk, char* circuloSw, char* retanguloSw);
 
-//Setters
+/*
+Setters: Define o atributo do título da função
+PRE: Objeto e atributo
+*/
 void coresPadraoSetPreenchimentoQuadras(CorPadrao corPadrao, char* cfill);
 void coresPadraoSetBordaQuadras(CorPadrao corPadrao, char* cstrk);
 void coresPadraoSetEspessuraQuadras(CorPadrao corPadrao, char* sw);
@@ -25,7 +29,11 @@ void coresPadraoSetEspessuraSemaforos(CorPadrao corPadrao, char* sw);
 void coresPadraoSetEspessuraCirculos(CorPadrao cores, char* cw);
 void coresPadraoSetEspessuraRetangulos(CorPadrao cores, char* rw);
 
-//Getters
+/*
+Getters: Retorna o atributo do título da função
+PRE: Objeto
+POS: Atributo especificado
+*/
 char* coresPadraoGetPreenchimentoQuadras(CorPadrao corPadrao);
 char* coresPadraoGetBordaQuadras(CorPadrao corPadrao);
 char* coresPadraoGetEspessuraQuadras(CorPadrao corPadrao);

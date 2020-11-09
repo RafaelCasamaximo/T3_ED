@@ -3,10 +3,14 @@
 
 typedef void* Retangulo;
 
-//Create
+//Função responsável para criar Retangulo. Retorna um pointer instanciado.
 Retangulo criaRetangulo(int id, int tracejado, float x, float y, float w, float h, char* cb, char* cp);
 
-//Getters
+/*
+Getters: Retorna o atributo do título da função
+PRE: Objeto
+POS: Atributo especificado
+*/
 int retanguloGetId(Retangulo retangulo);
 int retanguloGetTracejado(Retangulo retangulo);
 float retanguloGetX(Retangulo retangulo);
@@ -16,7 +20,10 @@ float retanguloGetHeight(Retangulo retangulo);
 char* retanguloGetCorBorda(Retangulo retangulo);
 char* retanguloGetCorPreenchimento(Retangulo retangulo);
 
-//Setters
+/*
+Setters: Define o atributo do título da função
+PRE: Objeto e atributo
+*/
 void retanguloSetId(Retangulo retangulo, int id);
 void retanguloSetTracejado(Retangulo retangulo, int tracejado);
 void retanguloSetX(Retangulo retangulo, float x);

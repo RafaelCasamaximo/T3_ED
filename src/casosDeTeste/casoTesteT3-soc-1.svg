@@ -1,191 +1,196 @@
 <svg>
-<rect x="25.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="25.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="85.000000" y="65.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b01.1</text>
-<rect x="160.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="160.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="220.000000" y="65.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b01.2</text>
-<rect x="295.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="295.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="355.000000" y="65.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b01.3</text>
-<rect x="430.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="430.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="490.000000" y="65.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b01.4</text>
-<rect x="565.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="565.000000" y="25.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="625.000000" y="65.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b01.5</text>
-<rect x="25.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="25.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="85.000000" y="160.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b02.1</text>
-<rect x="160.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="160.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="220.000000" y="160.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b02.2</text>
-<rect x="295.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="295.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="355.000000" y="160.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b02.3</text>
-<rect x="430.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="430.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="490.000000" y="160.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b02.4</text>
-<rect x="565.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="565.000000" y="120.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="625.000000" y="160.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b02.5</text>
-<rect x="25.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="25.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="85.000000" y="255.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b03.1</text>
-<rect x="160.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="160.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="220.000000" y="255.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b03.2</text>
-<rect x="295.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="295.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="355.000000" y="255.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b03.3</text>
-<rect x="430.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="430.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="490.000000" y="255.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b03.4</text>
-<rect x="565.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="565.000000" y="215.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="625.000000" y="255.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b03.5</text>
-<rect x="25.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="25.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="85.000000" y="350.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b04.1</text>
-<rect x="160.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="160.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="220.000000" y="350.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b04.2</text>
-<rect x="295.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="295.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="355.000000" y="350.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b04.3</text>
-<rect x="430.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="430.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="490.000000" y="350.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b04.4</text>
-<rect x="565.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="565.000000" y="310.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="625.000000" y="350.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b04.5</text>
-<rect x="25.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="25.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="85.000000" y="445.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b05.1</text>
-<rect x="160.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="160.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="220.000000" y="445.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b05.2</text>
-<rect x="295.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="295.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="355.000000" y="445.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b05.3</text>
-<rect x="430.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="430.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="490.000000" y="445.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b05.4</text>
-<rect x="565.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:black;stroke:blue;stroke-widht:1.0px"/>
+<rect x="565.000000" y="405.000000" width="120.000000" height="80.000000" style="fill:coral;stroke:saddlebrown;stroke-widht:0.5"/>
 <text x="625.000000" y="445.000000" fill="black" stroke="seashell" stroke-width="0.5" dominant-baseline="middle" text-anchor="middle">b05.5</text>
-<circle cx="17.500000" cy="17.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="287.500000" cy="17.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="422.500000" cy="17.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="557.500000" cy="17.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="152.500000" cy="112.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="287.500000" cy="112.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="422.500000" cy="112.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="557.500000" cy="112.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="17.500000" cy="207.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="152.500000" cy="207.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="287.500000" cy="207.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="152.500000" cy="302.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="422.500000" cy="302.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="17.500000" cy="397.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="152.500000" cy="397.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="287.500000" cy="397.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="422.500000" cy="397.500000" r="3" style="fill:lightred;stroke:yellow;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="25.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="65.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="160.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="65.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="295.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="65.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="430.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="65.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="565.000000" cy="105.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="65.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="25.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="160.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="160.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="160.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="295.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="160.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="430.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="160.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="565.000000" cy="200.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="160.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="25.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="255.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="160.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="255.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="295.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="255.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="430.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="255.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="565.000000" cy="295.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="255.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="25.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="350.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="160.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="350.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="295.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="350.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="430.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="350.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="565.000000" cy="390.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="350.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="25.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="145.000000" cy="445.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="160.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="280.000000" cy="445.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="295.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="415.000000" cy="445.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="430.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="550.000000" cy="445.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="565.000000" cy="485.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="685.000000" cy="445.000000" r="3" style="fill:red;stroke:firebrick;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="65.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="65.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="65.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="160.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="160.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="160.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="255.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="255.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="255.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="350.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="350.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="350.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="350.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="85.000000" cy="445.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="220.000000" cy="445.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="355.000000" cy="445.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="490.000000" cy="445.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<circle cx="625.000000" cy="445.000000" r="3" style="fill:magenta;stroke:lightblue;stroke-widht:1.0px"/>
-<rect x="415.000000" y="215.000000" width="20" height="20" style="fill:orange"/>
-<text x="425.000000" y="230.000000" text-anchor="middle" fill="white">10</text>
+<circle cx="17.500000" cy="17.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="287.500000" cy="17.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="422.500000" cy="17.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="557.500000" cy="17.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="152.500000" cy="112.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="287.500000" cy="112.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="422.500000" cy="112.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="557.500000" cy="112.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="17.500000" cy="207.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="152.500000" cy="207.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="287.500000" cy="207.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="152.500000" cy="302.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="422.500000" cy="302.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="17.500000" cy="397.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="152.500000" cy="397.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="287.500000" cy="397.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="422.500000" cy="397.500000" r="3" style="fill:green;stroke:red;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="25.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="65.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="160.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="65.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="295.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="65.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="430.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="65.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="565.000000" cy="105.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="65.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="25.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="160.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="160.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="160.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="295.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="160.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="430.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="160.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="565.000000" cy="200.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="160.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="25.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="255.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="160.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="255.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="295.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="255.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="430.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="255.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="565.000000" cy="295.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="255.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="25.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="350.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="160.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="350.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="295.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="350.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="430.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="350.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="565.000000" cy="390.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="350.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="25.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="145.000000" cy="445.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="160.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="280.000000" cy="445.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="295.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="415.000000" cy="445.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="430.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="550.000000" cy="445.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="565.000000" cy="485.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="685.000000" cy="445.000000" r="3" style="fill:red;stroke:darkred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="65.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="65.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="65.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="160.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="160.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="160.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="255.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="255.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="255.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="350.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="350.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="350.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="350.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="85.000000" cy="445.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="220.000000" cy="445.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="355.000000" cy="445.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="490.000000" cy="445.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<circle cx="625.000000" cy="445.000000" r="3" style="fill:deeppink;stroke:mediumvioletred;stroke-widht:0.5"/>
+<rect x="395.000000" y="215.000000" width="20" height="20" style="fill:orange"/>
+<text x="405.000000" y="230.000000" text-anchor="middle" fill="white">10</text>
+<circle cx="594.125427" cy="323.247437" r="3" style="fill:black;stroke:white;stroke-widht:2"/>
+<circle cx="502.373718" cy="466.465790" r="3" style="fill:black;stroke:white;stroke-widht:2"/>
+<circle cx="598.238281" cy="80.790230" r="3" style="fill:black;stroke:white;stroke-widht:2"/>
+<circle cx="501.971954" cy="223.270325" r="3" style="fill:black;stroke:white;stroke-widht:2"/>
+<circle cx="182.996521" cy="151.292648" r="3" style="fill:black;stroke:white;stroke-widht:2"/>
 <circle cx="0.000000" cy="495.000000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
 <circle cx="6.500000" cy="495.000000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
 <circle cx="13.000000" cy="495.000000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
@@ -670,4 +675,14 @@
 <circle cx="1315.000000" cy="534.000000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
 <circle cx="1276.000000" cy="540.500000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
 <circle cx="1321.500000" cy="540.500000" r="2.500000" style="stroke:black;fill:darkorange;stroke-widht:2.000000"/>
+<rect x="400.000000" y="220.000000" width="10.000000" height="10.000000" style="stroke:white;fill:blue;stroke-widht:2.000000"/>
+<rect x="400.000000" y="220.000000" width="10.000000" height="10.000000" style="stroke:white;fill:blue;stroke-widht:2.000000"/>
+<rect x="400.000000" y="220.000000" width="10.000000" height="10.000000" style="stroke:white;fill:blue;stroke-widht:2.000000"/>
+<rect x="400.000000" y="220.000000" width="10.000000" height="10.000000" style="stroke:white;fill:blue;stroke-widht:2.000000"/>
+<rect x="400.000000" y="220.000000" width="10.000000" height="10.000000" style="stroke:white;fill:blue;stroke-widht:2.000000"/>
+	<line x1="405.000000" y1="225.000000" x2="501.971954" y2="223.270325" style="stroke:black;stroke-width:1" stroke-dasharray="4"/>
+	<line x1="405.000000" y1="225.000000" x2="182.996521" y2="151.292648" style="stroke:black;stroke-width:1" stroke-dasharray="4"/>
+	<line x1="405.000000" y1="225.000000" x2="594.125427" y2="323.247437" style="stroke:black;stroke-width:1" stroke-dasharray="4"/>
+	<line x1="405.000000" y1="225.000000" x2="598.238281" y2="80.790230" style="stroke:black;stroke-width:1" stroke-dasharray="4"/>
+	<line x1="405.000000" y1="225.000000" x2="502.373718" y2="466.465790" style="stroke:black;stroke-width:1" stroke-dasharray="4"/>
 </svg>
