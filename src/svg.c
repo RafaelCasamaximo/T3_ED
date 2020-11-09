@@ -114,7 +114,7 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:black;stroke:white;stroke-widht:2\"/>",postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux)));
     }
 
-    //CIRCULO
+    //CIRCULOe
     for(Node aux = getFirst(listas[CIRCULO]); aux != NULL; aux = getNext(aux)){
         fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"%f\" style=\"stroke:%s;fill:%s;stroke-widht:%s\"/>", circuloGetX(getInfo(aux)), circuloGetY(getInfo(aux)), circuloGetRaio(getInfo(aux)), circuloGetCorBorda(getInfo(aux)), circuloGetCorPreenchimento(getInfo(aux)), coresPadraoGetEspessuraCirculos(cores));
     }
@@ -136,22 +136,22 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
 
     //LINHA
     for(Node aux = getFirst(listas[LINHA]); aux != NULL; aux = getNext(aux)){
-        if(linhaGetPntInicial(getInfo(aux)) == 1){
-            if(linhaGetInterna(getInfo(aux)) == 1){
+        if(linhaGetPntInicial(getInfo(aux)) == 1){ //i?
+            if(linhaGetInterna(getInfo(aux)) == 1){ //Interno
                 fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>",linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), "blue", "blue", "1px");
                 fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:blue;stroke-width:2\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
             }
-            else{
+            else{//Externo
                 fprintf(fileSvgQry, "\n<circle cx=\"%f\" cy=\"%f\" r=\"3\" style=\"fill:%s;stroke:%s;stroke-widht:%s\"/>",linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), "magenta", "magenta", "1px");
                 fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:magenta;stroke-width:2\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
 
             }
         }
-        else if(linhaGetPntInicial(getInfo(aux)) == 0){
+        else if(linhaGetPntInicial(getInfo(aux)) == 0){ //car e del
             fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
             fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" fill=\"balck\" stroke=\"seashell\" stroke-width=\"0.5\" dominant-baseline=\"hanging\">%s</text>", linhaGetX2(getInfo(aux)) + 5, linhaGetY2(getInfo(aux)), linhaGetCep(getInfo(aux)));
         }
-        else if(linhaGetPntInicial(getInfo(aux)) == -1){
+        else if(linhaGetPntInicial(getInfo(aux)) == -1){ //linha tracej -> soc
             fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\" stroke-dasharray=\"4\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
         }
     }

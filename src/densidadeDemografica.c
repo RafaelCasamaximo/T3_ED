@@ -66,7 +66,7 @@ float densidadeDemograficaGetWidth(DensidadeDemografica densidade){
 
     return dd->w;
 }
-float densidadeDemograficaGetHeightHeight(DensidadeDemografica densidade){
+float densidadeDemograficaGetHeight(DensidadeDemografica densidade){
     DensidadeDemograficaStruct* dd = (DensidadeDemograficaStruct*)densidade;
     
     return dd->h;

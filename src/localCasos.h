@@ -29,4 +29,6 @@ void localCasosSetFace(LocalCasos localCasos, char face);
 void localCasosSetX(LocalCasos localCasos, float x);
 void localCasosSetY(LocalCasos localCasos, float y);
 
+void swap(LocalCasos* p1, LocalCasos* p2);
+
 #endif

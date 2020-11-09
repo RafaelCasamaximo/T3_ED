@@ -16,6 +16,7 @@
 #include "infoSoc.h"
 #include "postoSaude.h"
 #include "sorting.h"
+#include "densidadeDemografica.h"
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
@@ -665,5 +666,103 @@ void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* f
         }
         free(info);
     }
+
+}
+
+int circInsideDensidadeDemografica(DensidadeDemografica dd, float x, float y, float r){
+    if((x - r > densidadeDemograficaGetX(dd) && x - r < densidadeDemograficaGetX(dd) + densidadeDemograficaGetWidth(dd)) ||(x + r > densidadeDemograficaGetX(dd) && x + r < densidadeDemograficaGetX(dd) + densidadeDemograficaGetWidth(dd))){
+        if((y - r > densidadeDemograficaGetY(dd) && y - r < densidadeDemograficaGetY(dd) + densidadeDemograficaGetHeight(dd)) ||(y + r > densidadeDemograficaGetY(dd) && y + r < densidadeDemograficaGetY(dd) + densidadeDemograficaGetHeight(dd))){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void ci(DoublyLinkedList* listas, float x, float y, float r, FILE* fileTxt){
+
+    Circulo circuloAux = NULL;
+    float d, area, inc;
+    int numCasos = 0;
+    char cor[22];
+
+    for(Node aux = getFirst(listas[DENSIDADEDEMOGRAFICA]); aux != NULL; aux = getNext(aux)){
+        if(circInsideDensidadeDemografica(getInfo(aux), x, y, r) == 1){
+            d = densidadeDemograficaGetDensidadeDemografica(getInfo(aux));
+            break;
+        }
+    }
+
+    circuloAux = criaCirculo(-1, x, y, r, "green", "none");
+    insert(listas[CIRCULO], circuloAux);
+
+    DoublyLinkedList listaAux = NULL;
+    listaAux = create();
+
+    DoublyLinkedList casos = NULL;
+
+    for(Node aux = getFirst(listas[LOCALCASOS]); aux != NULL; aux = getNext(aux)){
+        if(insideCirculo(localCasosGetX(getInfo(aux)), localCasosGetY(getInfo(aux)), x, y, r) == 1){
+            LocalCasos localCasoAux = NULL;
+            localCasoAux = criaLocalCasos(localCasosGetN(getInfo(aux)), localCasosGetNum(getInfo(aux)), localCasosGetCep(getInfo(aux)), localCasosGetFace(getInfo(aux)), localCasosGetX(getInfo(aux)), localCasosGetY(getInfo(aux)));
+            insert(listaAux, localCasoAux);
+            fprintf(fileTxt, "\n LC X: %f Y: %f\n", localCasosGetX(getInfo(aux)), localCasosGetY(getInfo(aux)));
+            numCasos += localCasosGetN(getInfo(aux));   
+        }
+    }
+    if(getFirst(listaAux) == NULL){
+        return;
+    }
+
+    int qtdElemListaAux = 0;
+    for(Node aux = getFirst(listaAux); aux != NULL; aux = getNext(aux)){
+        qtdElemListaAux++;
+    }
+
+    if(qtdElemListaAux > 2){
+        casos = envoltoriaConvexa(listaAux);
+    }
+    else{
+        return;
+    }
+
+    if(casos == NULL){
+        casos = listaAux;
+    }
+    
+    /*
+    COLOCAR NO FINAL DO CODIGO?/?
+    else{
+        removeList(listaAux);
+    }
+    */
+
+    area = obterArea(casos);
+    fprintf(fileTxt, "Numero de casos : %f\nArea : %f\n", numCasos, area);
+
+    if(area != 0){
+        inc = 10 * numCasos/(d * area);
+        if(inc < 0.1){
+            strcpy(cor, "00FFFF");
+            fprintf(fileTxt,"Categoria : A - Livre de Covid\n");
+        }
+        else if(inc < 5){
+            strcpy(cor, "008080");
+            fprintf(fileTxt,"Categoria : B - Baixa incidencia\n");
+        }
+        else if(inc < 10){
+            strcpy(cor, "FFFF00");
+            fprintf(fileTxt,"Categoria : C - Media incidencia\n");
+        }
+        else if(inc < 20){
+            strcpy(cor, "FF0000");
+            fprintf(fileTxt,"Categoria : D - Alta incidencia\n");
+        }
+        else{
+            strcpy(cor, "800080");
+            fprintf(fileTxt,"Categoria : E - Catastrofico\n");
+        }
+
+    }
+
 
 }
