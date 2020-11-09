@@ -14,13 +14,14 @@ OBJ=$(C_SOURCE:.c=.o)
 CC=gcc
 
 # Flags for compiler
-CC_FLAGS=-c         \
-         -W         \
+CC_FLAGS=-W         \
          -Wall      \
          -ansi      \
-         -pedantic	\
-		 -std=c99	\
-		 -fstack-protector-all
+         -pedantic  \
+		 -std=c99   \
+		 -fstack-protector-all 
+
+LINKER_FLAGS = -lm
 
 #
 # Compilation and linking
@@ -28,13 +29,13 @@ CC_FLAGS=-c         \
 all: $(PROJ_NAME)
 
 $(PROJ_NAME): $(OBJ)
-		$(CC) -o $@ $^
+	$(CC) -o $@ $^ $(CC_FLAGS) $(LINKER_FLAGS)
 
 %.o: %.c %.h
-		$(CC) -o $@ $< $(CC_FLAGS)
+	$(CC) -o $@ $< -c $(CC_FLAGS) $(LINKER_FLAGS)
 
 main.o: main.c $(H_SOURCE)
-		$(CC) -o $@ $< $(CC_FLAGS)
+	$(CC) -o $@ $< -c $(CC_FLAGS)
 
 clean:
-		rm -rf *.o $(PROJ_NAME) *~
+	rm -rf *.o $(PROJ_NAME) *~

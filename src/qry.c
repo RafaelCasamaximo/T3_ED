@@ -13,6 +13,9 @@
 #include "radioBase.h"
 #include "semaforo.h"
 #include "localCasos.h"
+#include "infoSoc.h"
+#include "postoSaude.h"
+#include "sorting.h"
 
 enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
 
@@ -611,3 +614,50 @@ void cv(DoublyLinkedList* listas, int n,  char* cep, char face, int num){
     insert(listas[LOCALCASOS], localCasosAux);
 }
 
+void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* fileTxt){
+
+    float xLC, yLC;
+    int qtdPS = 0;
+    Linha linhaAux = NULL;
+
+    for(Node aux = getFirst(listas[LOCALCASOS]); aux != NULL; aux = getNext(aux)){
+        if(strcmp(cep, localCasosGetCep(getInfo(aux))) == 0 && face == localCasosGetFace(getInfo(aux)) && num == localCasosGetNum(getInfo(aux))){
+            xLC = localCasosGetX(getInfo(aux));
+            yLC = localCasosGetY(getInfo(aux));
+        }
+    }
+
+    for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+        qtdPS++;    
+    }
+
+    printf("XLC: %f YLC: %f NUMERO DE PS: %d", xLC, yLC, qtdPS);
+    //-------------------------------------------------------------------------
+
+    InfoSoc* info = malloc(qtdPS * sizeof(InfoSoc));
+    for(int i = 0; i < qtdPS; i++){
+        info[i] = criaInfoSoc(10, 10, 10);
+    }
+    //-------------------------------------------------------------------------
+    int i = 0;
+    for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+        infoSocSetX(info[i], postoSaudeGetX(getInfo(aux)));
+        infoSocSetY(info[i], postoSaudeGetY(getInfo(aux)));
+        infoSocSetDistancia(info[i], distanciaEntrePontos(xLC, yLC, postoSaudeGetX(getInfo(aux)), postoSaudeGetY(getInfo(aux))));
+        i++;
+    }
+
+    shellSorting(info, qtdPS);
+    
+    for(i = 0; i < k; i++){ 
+        fprintf(fileTxt, "\nPS %d - X: %f Y: %f", i+1, infoSocGetX(info[i]), infoSocGetY(info[i]));
+        linhaAux = criaLinha(xLC, yLC, infoSocGetX(info[i]), infoSocGetY(info[i]), 0, 0, "");
+        insert(listas[LINHA], linhaAux);
+    }
+
+    for(int i = 0; i < qtdPS; i++){
+        free(info[i]);
+    }
+    free(info);
+
+}

@@ -8,6 +8,8 @@ Pós: Retorna um float referente a distância dos dois pontos
 */
 float distanciaQuadrada(float x1, float  y1, float  x2, float  y2);
 
+float distanciaEntrePontos(float x1, float  y1, float  x2, float  y2);
+
 //Calcula o min de 2 valores;
 //a, b - valores especificados;
 int min(int a, int b);

@@ -41,4 +41,5 @@ void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identifica
 
 //T3_ED
 void cv(DoublyLinkedList* listas, int n, char* cep, char face, int num);
+
 #endif

@@ -147,7 +147,7 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         //soc
         if(strcmp(comando, "soc") == 0){
             fscanf(fileQry, "%d %s %c %d", &k, cep, &face, &num);
-            //função soc 
+            soc(listas, k, cep, face, num, fileTxt);
         }
         //ci        
         if(strcmp(comando, "ci") == 0){
