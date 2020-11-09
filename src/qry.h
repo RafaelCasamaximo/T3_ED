@@ -76,6 +76,7 @@ Função responsável pelo delf. Remove uma figura.
 PRE: ID j da figura que será removida.
 */
 void delf(DoublyLinkedList* listas, int j, FILE* fileTxt);
+
 /*
 Função responsável pelo delf. Remove uma figura.
 PRE: IDs j e k da figura que será removida.
@@ -89,7 +90,6 @@ Deleta um equipamento urbano ou quadra.
 PRE: cep ou id da quadra ou equipamento urbano
 */
 void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt);
-
 void cbq(DoublyLinkedList* listas, float x, float y, float r, char* cb, FILE* fileTxt);
 void crd(DoublyLinkedList* listas, char* id, FILE* fileTxt);
 void car(DoublyLinkedList* listas, float x, float y, float w, float h, int id, FILE* fileTxt);
@@ -99,9 +99,7 @@ void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identifica
 //T3_ED
 void cv(DoublyLinkedList* listas, int n, char* cep, char face, int num);
 void soc(DoublyLinkedList* listas, int k, char* cep, char face, int num, FILE* fileTxt);
-
 int circInsideDensidadeDemografica(DensidadeDemografica dd, float x, float y, float r);
-
 void ci(DoublyLinkedList* listas, float x, float y, float r, FILE* fileTxt);
 
 #endif
