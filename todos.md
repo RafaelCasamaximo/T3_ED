@@ -1,8 +1,9 @@
 Implementações:
 
-Implementações T1
--SVG
--Leitura QRY
--SVG QRY
--TXT de Log
--T2 e T3
+-Desenhar SVG do PS
+-Colocar flag linha tracejada
+-Desenhar retangulo azul no endereço
+-Comentar TADs
+
+Opcional
+-Tirar infoSoc e usar lista de postos de saúde (adicionando a distancia)
