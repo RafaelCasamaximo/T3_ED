@@ -112,26 +112,32 @@ void insertAfter(DoublyLinkedList lista, Node node, Info info){
 }
 
 
-void removeNode(DoublyLinkedList lista, Node node){
+void removeNode(DoublyLinkedList lista, Node node, int flag){
     NodeStruct* nod = (NodeStruct*)node;
     ListaStruct* list = (ListaStruct*)lista;
 
     if(nod->prox == NULL && nod->ant == NULL){
         list->primeiro = NULL;
         list->ultimo = NULL;
-        free(nod->info);
+        if(flag == 1){
+            free(nod->info);
+        }
         free(nod);
         return;
     }
     if(nod->ant == NULL){
         list->primeiro = nod->prox;
-        free(nod->info);
+        if(flag == 1){
+            free(nod->info);
+        }
         free(nod);
         return;
     }
     if(nod->prox == NULL){
         list->ultimo = nod->ant;
-        free(nod->info);
+        if(flag == 1){
+            free(nod->info);
+        }   
         free(nod);
         return;
     }
@@ -143,7 +149,7 @@ void removeNode(DoublyLinkedList lista, Node node){
 }
 
 
-void removeList(DoublyLinkedList lista){
+void removeList(DoublyLinkedList lista, int flag){
     ListaStruct* list = (ListaStruct*) lista;
     NodeStruct* inicio = list->primeiro;
 
@@ -151,7 +157,9 @@ void removeList(DoublyLinkedList lista){
     while(inicio != NULL){
         aux = inicio;
         inicio = inicio->prox;
-        free(getInfo(aux));
+        if(flag == 1){
+            free(getInfo(aux));
+        }
         free(aux);
     }
     free(list);

@@ -29,6 +29,10 @@ void localCasosSetFace(LocalCasos localCasos, char face);
 void localCasosSetX(LocalCasos localCasos, float x);
 void localCasosSetY(LocalCasos localCasos, float y);
 
+/*
+Realiza a troca dos atributos de dois objetos p1 e p2
+PRE: Objetos p1 e p2
+*/
 void swap(LocalCasos* p1, LocalCasos* p2);
 
 #endif

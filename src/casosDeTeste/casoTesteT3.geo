@@ -1,4 +1,9 @@
 nx 556 28 114 19 20
+cq 1.0px lightyellow chocolate
+cs 1.0px lightred yellow
+ch 1.0px red firebrick
+cr 1.0px magenta lightblue
+cq 1.0px blue black
 q b01.1 25.000000 25.000000 120.000000 80.000000
 h hnb01.1 85.000000 105.000000
 h hnob01.1 145.000000 105.000000

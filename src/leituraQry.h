@@ -7,7 +7,6 @@
 /*
 Lê as consultas requisitadas no arquivo QRY
 Pré: As listas e o diretório do arquivo QRY
-Pós: Nada
 */
 void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt);
 

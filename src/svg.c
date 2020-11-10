@@ -14,10 +14,10 @@
 #include "corPadrao.h"
 #include "localCasos.h"
 #include "postoSaude.h"
+#include "poligono.h"
 
 
-
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS, POLIGONO};
 
 
 void desenhaSvgGeo(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
@@ -151,9 +151,20 @@ void desenhaSvgQry(DoublyLinkedList* listas, CorPadrao cores, char* dirSaida){
             fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
             fprintf(fileSvgQry, "\n<text x=\"%f\" y=\"%f\" fill=\"balck\" stroke=\"seashell\" stroke-width=\"0.5\" dominant-baseline=\"hanging\">%s</text>", linhaGetX2(getInfo(aux)) + 5, linhaGetY2(getInfo(aux)), linhaGetCep(getInfo(aux)));
         }
-        else if(linhaGetPntInicial(getInfo(aux)) == -1){ //linha tracej -> soc
+        else if(linhaGetPntInicial(getInfo(aux)) == -1){ //soc
             fprintf(fileSvgQry, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:black;stroke-width:1\" stroke-dasharray=\"4\"/>", linhaGetX1(getInfo(aux)), linhaGetY1(getInfo(aux)), linhaGetX2(getInfo(aux)), linhaGetY2(getInfo(aux)));
         }
+    }
+    
+    //POLIGONO
+    for(Node aux = getFirst(listas[POLIGONO]); aux != NULL; aux = getNext(aux)){
+            Poligono p = getInfo(aux);
+            fprintf(fileSvgQry,"\t<polygon id=\"%d\" fill=\"%s\" fill-opacity=\"0.2\" stroke=\"red\" stroke-width=\"5px\" points=\"", poligonoGetTamanho(getInfo(getLast(listas[POLIGONO]))), poligonoGetCor(p));
+
+            for(int i = 0; i < poligonoGetTamanho(p); i++){
+                fprintf(fileSvgQry," %f, %f", poligonoGetX(p, i), poligonoGetY(p, i));
+            }
+            fprintf(fileSvgQry," \"/>\n");
     }
     
     fprintf(fileSvgQry, "\n</svg>");

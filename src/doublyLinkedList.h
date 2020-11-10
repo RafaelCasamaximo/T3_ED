@@ -68,12 +68,12 @@ void insertAfter(DoublyLinkedList lista, Node node, Info info);
 Remove o Node especificado da lista
 PRE: DoublyLinkedList lista, Node node
 */
-void removeNode(DoublyLinkedList lista, Node node);
+void removeNode(DoublyLinkedList lista, Node node, int flag);
 
 /*
 Remove uma lista
 PRE: DoublyLinkedList lista
 */
-void removeList(DoublyLinkedList lista);
+void removeList(DoublyLinkedList lista, int flag);
 
 #endif

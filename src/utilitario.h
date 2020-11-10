@@ -8,6 +8,11 @@ Pós: Retorna um float referente a distância dos dois pontos
 */
 float distanciaQuadrada(float x1, float  y1, float  x2, float  y2);
 
+/*
+Calcula a distancia entre dois pontos
+PRE: Coordenadas dos dois pontos
+POS: distancia
+*/
 float distanciaEntrePontos(float x1, float  y1, float  x2, float  y2);
 
 //Calcula o min de 2 valores;

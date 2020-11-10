@@ -11,7 +11,7 @@
 
 
 
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS, POLIGONO};
 
 
 void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
@@ -152,7 +152,7 @@ void readQry(DoublyLinkedList* listas, char* dirQry, char* dirTxt){
         //ci        
         if(strcmp(comando, "ci") == 0){
             fscanf(fileQry, "%f %f %f", &x, &y, &r);
-            //função ci 
+            ci(listas, x, y, r, fileTxt); 
         }
         id--;
     }

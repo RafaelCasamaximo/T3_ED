@@ -92,7 +92,7 @@ DoublyLinkedList envoltoriaConvexa(DoublyLinkedList lista){
         p2 = getInfo(getPrevious(i));
 
         if(orientacao(getInfo(primeiro), p1, p2) == 0){
-            removeNode(lista, getPrevious(i));
+            removeNode(lista, getPrevious(i), 1);
         }
         else{
             j++;
@@ -108,7 +108,7 @@ DoublyLinkedList envoltoriaConvexa(DoublyLinkedList lista){
     }
     while(i != NULL){
         while(orientacao(getInfo(getPrevious(getLast(envConv))), getInfo(getLast(envConv)), getInfo(i)) != 1){
-            removeNode(envConv, getLast(envConv));
+           removeNode(envConv, getLast(envConv), 1);
         }
         insert(envConv, getInfo(i));
         i = getNext(i);

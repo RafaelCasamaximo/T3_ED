@@ -14,7 +14,6 @@ char *buscaParametros(char* argv[], int i);
 Verifica se os parâmetros essenciais foram inseridos pelo usuário
 Pré: arqGeo - Nome do arquivo GEO (referente ao comando -f no siguel)
      dirSaida - Caminho onde serão gerados os arquivos de saída (referente ao comando -o no siguel)
-Pós: Nenhum
 */
 void verificaExecucao(char* arqGeo, char* dirSaida);
 

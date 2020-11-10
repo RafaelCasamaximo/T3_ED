@@ -11,13 +11,14 @@
 #include "leituraQry.h"
 #include "svg.h"
 #include "texto.h"
+#include "poligono.h"
 //Custom Headers para estruturas e organização
 #include "doublyLinkedList.h"
 
 
 
 //Enumeration para todas as listas utilizadas
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS, POLIGONO};
 
 
 int main(int argc, char* argv[]){
@@ -75,8 +76,8 @@ int main(int argc, char* argv[]){
 
 
     //Cria Listas
-    DoublyLinkedList listas[11];
-    for(int i = CIRCULO; i <= LOCALCASOS; i++){
+    DoublyLinkedList listas[12];
+    for(int i = CIRCULO; i <= POLIGONO; i++){
         listas[i] = create();
     }
 
@@ -124,17 +125,24 @@ int main(int argc, char* argv[]){
 
 
     //Deleta todas as listas
-    for(int i = CIRCULO; i <= LOCALCASOS; i++){
+    for(int i = CIRCULO; i <= POLIGONO; i++){
         //Caso a lista seja uma lista de texto, deleta todos os textos alocados
         if(i == TEXTO){
             for(Node aux = getFirst(listas[TEXTO]); aux != NULL; aux = getNext(aux)){
                 textoDeletaTxt(getInfo(aux));
                 printf("%d", TEXTO);
             }
+            
         }
-        removeList(listas[i]);
+        if(i == POLIGONO){
+            for(Node aux = getFirst(listas[POLIGONO]); aux != NULL; aux = getNext(aux)){
+                desalocaXY(getInfo(aux));
+            }
+        }
+        removeList(listas[i], 1);
     }
 
+    //Desaloca toda a memória alocada para a aplicação
     free(dirEntrada);
     free(arqGeo);
     free(arqQry);

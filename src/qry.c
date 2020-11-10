@@ -17,10 +17,11 @@
 #include "postoSaude.h"
 #include "sorting.h"
 #include "densidadeDemografica.h"
+#include "poligono.h"
 
 
 
-enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS};
+enum LISTAS{CIRCULO, RETANGULO, TEXTO, LINHA, QUADRA, HIDRANTE, SEMAFORO, RADIOBASE, POSTOSAUDE, DENSIDADEDEMOGRAFICA, LOCALCASOS, POLIGONO};
 
 
 int insideCirculo(float x, float y, float cx, float cy, float r){
@@ -297,7 +298,7 @@ void delf(DoublyLinkedList* listas, int j, FILE* fileTxt){
                 if(i == TEXTO){
                     textoDeletaTxt(getInfo(aux));
                 }
-                removeNode(listas[i], aux);
+                removeNode(listas[i], aux, 1);
                 return;
             }
         }
@@ -344,7 +345,7 @@ void del(DoublyLinkedList* listas, char* cep, FILE* fileTxt){
 
             if(strcmp(id, cep) == 0){
                 insert(listas[LINHA], criaLinha(x, y, x, 0, 0, 0, id));
-                removeNode(listas[i], aux);
+                removeNode(listas[i], aux, 1);
                 return;
             }
         }
@@ -544,7 +545,7 @@ void dq(DoublyLinkedList* listas, char* id, float r, int hashtag, int identifica
             Node tempAux = getNext(auxDelete);
             if(insideP1 == 1 && insideP2 == 1 && insideP3 == 1 && insideP4 == 1){
                 fprintf(fileTxt, "\n QUADRA / CEP: %s", quadraGetCep(getInfo(auxDelete)));
-                removeNode(listas[QUADRA], auxDelete);
+                removeNode(listas[QUADRA], auxDelete, 1);
             }
             auxDelete = tempAux;
         }
@@ -685,12 +686,35 @@ int circInsideDensidadeDemografica(DensidadeDemografica dd, float x, float y, fl
     return 0;
 }
 
+PostoSaude centroide(DoublyLinkedList l, float area){
+    float x = 0;
+    float y = 0;
+    Info i = NULL;
+    Info j = NULL;
+    Node aux;
+
+    for(aux = getFirst(l); aux != NULL; aux = getNext(aux)){
+        i = getInfo(aux);
+        j = getInfo(getNext(aux));
+        x += (localCasosGetX(i) + localCasosGetX(j)) * localCasosGetX(i) * localCasosGetY(j) - localCasosGetY(i) * localCasosGetX(j);
+        y += (localCasosGetY(i) + localCasosGetY(j)) * localCasosGetX(i) * localCasosGetY(j) - localCasosGetY(i) * localCasosGetX(j);
+    }
+    i = getInfo(aux);
+    j = getInfo(getFirst(l));
+
+    x += (localCasosGetX(i) + localCasosGetX(j)) * localCasosGetX(i) * localCasosGetY(j) - localCasosGetY(i) * localCasosGetX(j);
+    y += (localCasosGetY(i) + localCasosGetY(j)) * localCasosGetX(i) * localCasosGetY(j) - localCasosGetY(i) * localCasosGetX(j);
+
+    return criaPostoSaude(x / (6 * area), y / (6 * area));
+}
+
 void ci(DoublyLinkedList* listas, float x, float y, float r, FILE* fileTxt){
 
     Circulo circuloAux = NULL;
-    float d, area, inc;
+    float d = 0, area = 0, inc = 0;
     int numCasos = 0;
     char cor[22];
+    PostoSaude postoAux = NULL;
 
     for(Node aux = getFirst(listas[DENSIDADEDEMOGRAFICA]); aux != NULL; aux = getNext(aux)){
         if(circInsideDensidadeDemografica(getInfo(aux), x, y, r) == 1){
@@ -735,39 +759,67 @@ void ci(DoublyLinkedList* listas, float x, float y, float r, FILE* fileTxt){
     if(casos == NULL){
         casos = listaAux;
     }
-    
-    /*
-    COLOCAR NO FINAL DO CODIGO?/?
-    else{
-        removeList(listaAux);
-    }
-    */
 
     area = obterArea(casos);
-    fprintf(fileTxt, "Numero de casos : %f\nArea : %f\n", numCasos, area);
+    fprintf(fileTxt, "Numero de casos : %d\nArea : %f\n", numCasos, area);
 
     if(area != 0){
         inc = 10 * numCasos/(d * area);
         if(inc < 0.1){
             strcpy(cor, "00FFFF");
-            fprintf(fileTxt,"Categoria : A - Livre de Covid\n");
+            fprintf(fileTxt,"Categoria A - Livre de Covid\n");
         }
         else if(inc < 5){
             strcpy(cor, "008080");
-            fprintf(fileTxt,"Categoria : B - Baixa incidencia\n");
+            fprintf(fileTxt,"Categoria B - Baixa incidencia\n");
         }
         else if(inc < 10){
             strcpy(cor, "FFFF00");
-            fprintf(fileTxt,"Categoria : C - Media incidencia\n");
+            fprintf(fileTxt,"Categoria C - Media incidencia\n");
         }
         else if(inc < 20){
             strcpy(cor, "FF0000");
-            fprintf(fileTxt,"Categoria : D - Alta incidencia\n");
+            fprintf(fileTxt,"Categoria D - Alta incidencia\n");
         }
         else{
             strcpy(cor, "800080");
-            fprintf(fileTxt,"Categoria : E - Catastrofico\n");
+            fprintf(fileTxt,"Categoria E - Catastrofico\n");
+            for(Node aux = getFirst(listas[POSTOSAUDE]); aux != NULL; aux = getNext(aux)){
+                Info infoAux = getInfo(aux);
+                if(insideCirculo(postoSaudeGetX(infoAux), postoSaudeGetY(infoAux), x, y, r)){
+                    postoAux = infoAux;
+                }
+            }
+            if(postoAux == NULL){
+                postoAux = centroide(casos, area);
+                fprintf(fileTxt, "Sugere-se um novo posto em: (%f, %f)\n", postoSaudeGetX(postoAux), postoSaudeGetY(postoAux));
+            }
         }
-
     }
+    else{
+        fprintf(fileTxt, "Nao e possivel obter a categoria da região, e necessario ao menos 3 locais com incidencia");
+    }
+
+    int tamanho = 0;
+
+    Node primeiroCasos = getFirst(casos);
+
+    for(Node aux = getFirst(casos); aux != NULL; aux = getNext(aux)){
+        tamanho++;
+    }
+
+    Poligono poligonoAux = NULL;
+    poligonoAux = criaPoligono(cor, tamanho);
+
+    insert(listas[POLIGONO], poligonoAux);
+    for(int count = 0; count < tamanho; count++){
+        Info poligonoInfoAux = getInfo(primeiroCasos);
+        poligonoSetX(poligonoAux, localCasosGetX(poligonoInfoAux), count);
+        poligonoSetY(poligonoAux, localCasosGetY(poligonoInfoAux), count);
+    
+        primeiroCasos = getNext(primeiroCasos);
+    }
+
+    removeList(casos, 0);
+    //removeList(listaAux);
 }
